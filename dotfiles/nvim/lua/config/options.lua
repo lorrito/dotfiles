@@ -27,6 +27,7 @@ vim.opt.cursorline = true                       -- highlights the current line
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.wrap = false
+vim.opt.whichwrap:remove({ 'h', 'l' })
 vim.opt.ignorecase = true
 vim.opt.virtualedit = "onemore"                 -- makes the cursor go one more at the end of the line
 vim.opt.laststatus = 0

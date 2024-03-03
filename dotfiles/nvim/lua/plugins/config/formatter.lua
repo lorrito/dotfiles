@@ -8,7 +8,6 @@ local util = require("formatter.util")
 plugin.setup({
 	logging = true,
 	log_level = vim.log.levels.WARN,
-
 	filetype = {
 		c = {
 			require("formatter.filetypes.c").clangformat,
@@ -16,6 +15,7 @@ plugin.setup({
 				return {
 					exe = "clang-format",
 					args = {
+						'--style="{ ReferenceAlignment: Pointer, PointerAlignment: Right, ReflowComments: true, KeepEmptyLinesAtTheStartOfBlocks: false, KeepEmptyLinesAtEOF: false, IndentWidth: 2, ColumnLimit: 160 }"',
 						"-assume-filename",
 						util.escape_path(util.get_current_buffer_file_name()),
 					},
@@ -40,7 +40,6 @@ plugin.setup({
 				}
 			end,
 		},
-
 		javascript = {
 			require("formatter.filetypes.javascript").prettier,
 			function()
@@ -55,7 +54,6 @@ plugin.setup({
 				}
 			end,
 		},
-
 		ruby = {
 			require("formatter.filetypes.ruby").standardrb,
 			function()
@@ -73,7 +71,6 @@ plugin.setup({
 				}
 			end,
 		},
-
 		["*"] = {
 			require("formatter.filetypes.any").remove_trailing_whitespace,
 		},

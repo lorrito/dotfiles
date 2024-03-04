@@ -23,6 +23,8 @@ if not status_ok_lspconfig then
 	return
 end
 
+local util = require("lspconfig/util")
+
 local has_words_before = function()
 	unpack = unpack or table.unpack
 	local line, col = unpack(vim.api.nvim_win_get_cursor(0))
@@ -162,6 +164,32 @@ for _, lsp in ipairs(servers) do
 		capabilities = capabilities,
 	})
 end
+
+lspconfig.rust_analyzer.setup({
+	filetypes = { "rust" },
+	root_dir = util.root_pattern("Cargo.toml"),
+	settings = {
+		["rust-analyzer"] = {
+			imports = {
+				granularity = {
+					group = "module",
+				},
+				prefix = "self",
+			},
+			diagnostics = {
+				enable = true,
+			},
+			cargo = {
+				allFeatures = true,
+			},
+			procMacro = {
+				enable = true,
+			},
+		},
+	},
+	on_attach = on_attach,
+	capabilities = capabilities,
+})
 
 lspconfig.emmet_language_server.setup({
 	filetypes = {

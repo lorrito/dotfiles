@@ -22,10 +22,10 @@ masonlsp.setup({})
 
 masontools.setup({
 	ensure_installed = {
-    -- C
-    -- C++
-    "clangd",
-    "clang-format",
+		-- C
+		-- C++
+		"clangd",
+		"clang-format",
 
 		-- Lua
 		"stylua",
@@ -35,12 +35,17 @@ masontools.setup({
 		"prettier",
 		"typescript-language-server",
 
-    -- HTML
-    "emmet-language-server",
+		-- HTML
+		"emmet-language-server",
 
 		-- Ruby
 		"solargraph",
 		"standardrb",
+
+		-- Rust
+		-- rustfmt should be installed using rustup
+		-- rustup component add rustfmt
+		"rust-analyzer",
 	},
 	run_on_start = true,
 	start_delay = 512,

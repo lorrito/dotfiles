@@ -77,7 +77,10 @@ plugin.setup({
 				return {
 					exe = "rustfmt",
 					args = {
+						"--emit=stdout", -- Output to stdout
 						util.escape_path(util.get_current_buffer_file_path()),
+            "--",
+            "-",
 					},
 					stdin = true,
 				}

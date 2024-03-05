@@ -1,7 +1,6 @@
 local config = "plugins.config."
 
 require(config .. "actions")
-require(config .. "alpha")
 require(config .. "bufferline")
 require(config .. "comment")
 require(config .. "formatter")

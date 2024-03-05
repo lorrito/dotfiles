@@ -5,6 +5,7 @@ if not status_ok then
 end
 
 plugin.setup({
+  border = true,
 	defaults = {
 		history = {
 			limit = 500,

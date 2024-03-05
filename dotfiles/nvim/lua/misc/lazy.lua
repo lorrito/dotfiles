@@ -2,6 +2,9 @@ require("lazy").setup({
 	-- Necessary for some plugins
 	{ "nvim-lua/plenary.nvim" },
 
+	-- Treesitter!
+	{ "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
+
 	-- Colorschemes
 	{ "RRethy/base16-nvim", lazy = false, priority = 1000 },
 
@@ -11,8 +14,8 @@ require("lazy").setup({
 	-- Formatting code with C-f
 	{ "mhartington/formatter.nvim" },
 
-  -- A plugin to work with my notes
-  { "jakewvincent/mkdnflow.nvim" },
+	-- A plugin to work with my notes
+	{ "jakewvincent/mkdnflow.nvim" },
 
 	-- Floating terminal
 	{ "akinsho/toggleterm.nvim", config = true },
@@ -60,9 +63,6 @@ require("lazy").setup({
 
 	-- Buffers on top
 	{ "akinsho/bufferline.nvim" },
-
-	-- Dashboard on the start screen
-	{ "goolord/alpha-nvim" },
 
 	-- Configuration plugin for neovim's lsp
 	{ "neovim/nvim-lspconfig" },

@@ -21,6 +21,7 @@ vim.opt.swapfile = false                        -- disables swap file creation
 vim.opt.updatetime = 300                        -- makes so the update time is faster, for a faster <TAB> completion
 vim.opt.expandtab = true                        -- converts tabs to spaces
 vim.opt.termguicolors = true
+vim.opt.background = "dark"
 vim.opt.shiftwidth = 2
 vim.opt.tabstop = 2
 vim.opt.cursorline = true                       -- highlights the current line

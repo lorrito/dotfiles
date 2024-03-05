@@ -5,6 +5,20 @@ if not status_ok then
 end
 
 plugin.setup({
+	modules = {
+		bib = true,
+		buffers = true,
+		conceal = false,
+		cursor = true,
+		folds = false,
+		links = true,
+		lists = true,
+		maps = true,
+		paths = true,
+		tables = false,
+		yaml = false,
+		cmp = false,
+	},
 	filetypes = { md = true, rmd = true, markdown = true },
 	create_dirs = true,
 	perspective = {
@@ -55,18 +69,6 @@ plugin.setup({
 		in_progress = "-",
 		complete = "X",
 	},
-	tables = {
-		trim_whitespace = true,
-		format_on_move = true,
-		auto_extend_rows = false,
-		auto_extend_cols = false,
-		style = {
-			cell_padding = 1,
-			separator_padding = 1,
-			outer_pipes = true,
-			mimic_alignment = true,
-		},
-	},
 	yaml = {
 		bib = { override = false },
 	},
@@ -91,7 +93,7 @@ plugin.setup({
 		MkdnIncreaseHeading = { "n", "+" },
 		MkdnDecreaseHeading = { "n", "-" },
 		MkdnToggleToDo = { { "n", "v" }, "<C-Space>" },
-		MkdnNewListItem = { "i", "<CR>" },
+		MkdnNewListItem = false,
 		MkdnNewListItemBelowInsert = { "n", "o" },
 		MkdnNewListItemAboveInsert = { "n", "O" },
 		MkdnExtendList = false,
@@ -104,7 +106,7 @@ plugin.setup({
 		MkdnTableNewRowAbove = { "n", "<leader>iR" },
 		MkdnTableNewColAfter = { "n", "<leader>ic" },
 		MkdnTableNewColBefore = { "n", "<leader>iC" },
-		MkdnFoldSection = { "n", "<leader>u" },
-		MkdnUnfoldSection = { "n", "<leader>U" },
+		MkdnFoldSection = { "n", "<leader>f" },
+		MkdnUnfoldSection = { "n", "<leader>F" },
 	},
 })

@@ -5,14 +5,10 @@ if not status_ok then
 end
 
 plugin.setup({
-	ensure_installed = { "c", "rust", "lua", "vim", "vimdoc", "ruby", "javascript" },
 	sync_install = false,
 	auto_install = true,
-
 	highlight = {
-		enable = false,
-		disable = { "text", "markdown", "txt", "md" },
-		additional_vim_regex_highlighting = false,
+		enable = true,
 	},
 	indent = {
 		enable = false,

@@ -1,4 +1,3 @@
----@diagnostic disable: undefined-global
 -- Creating lists in order to have shorter options
 local opts = { noremap = true, silent = true }
 
@@ -36,11 +35,14 @@ keymap("n", "<S-Down>", ":resize -2<CR>", opts)
 keymap("n", "<S-Left>", ":vertical resize -2<CR>", opts)
 keymap("n", "<S-Right>", ":vertical resize +2<CR>", opts)
 
+-- Clear highlights
+keymap("n", "<leader>h", ":noh<CR>", opts)
+
 -- Close tab and go to another buffer, if there's one.
 keymap("n", "<C-x>", ":bd<CR>:bl<CR>", opts)
 
--- Clear highlights
-keymap("n", "<leader>h", ":noh<CR>", opts)
+-- Save file
+keymap("n", "<C-s>", ":w<CR>", opts)
 
 -- Move lines
 -- Visual block mode
@@ -55,19 +57,18 @@ keymap("i", "<A-k>", "<Esc>:m-2<CR>i", opts)
 keymap("n", "<A-j>", ":m+1<CR>", opts)
 keymap("n", "<A-k>", ":m-2<CR>", opts)
 
--- Telescope 
+-- Telescope
 keymap("n", "<leader>ff", ":Telescope find_files<CR>", opts)
 keymap("n", "<leader>fg", ":Telescope live_grep<CR>", opts)
 keymap("n", "<leader>fr", ":Telescope oldfiles<CR>", opts)
 
--- Save file
-keymap("n", "<C-s>", ":w<CR>", opts)
-
--- Nvimtree 
+-- Nvimtree
 keymap("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
 
 -- Trouble
-vim.keymap.set("n", "<leader>xx", function() require("trouble").toggle() end, opts)
+vim.keymap.set("n", "<leader>xx", function()
+	require("trouble").toggle()
+end, opts)
 
 -- Actions preview
 vim.keymap.set({ "v", "n" }, "<leader>ca", require("actions-preview").code_actions, opts)
@@ -78,11 +79,12 @@ keymap("n", "<C-f>", ":Format<CR>", opts)
 -- Makes so $ goes one more after the last character
 keymap("n", "$", "$l", opts)
 
--- Adds yank to windows with ctrl shift c
-vim.keymap.set({ "v", "x" }, "<C-C>", '"+y', opts)
-
 -- Scissors snippets keymaps
-vim.keymap.set("n", "<leader>se", function() require("scissors").editSnippet() end)
+vim.keymap.set("n", "<leader>se", function()
+	require("scissors").editSnippet()
+end)
 
 -- When used in visual mode prefills the selection as body.
-vim.keymap.set({ "n", "x" }, "<leader>sa", function() require("scissors").addNewSnippet() end)
+vim.keymap.set({ "n", "x" }, "<leader>sa", function()
+	require("scissors").addNewSnippet()
+end)

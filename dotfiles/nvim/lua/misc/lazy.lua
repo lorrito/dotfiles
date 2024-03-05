@@ -5,8 +5,8 @@ require("lazy").setup({
 	-- Treesitter!
 	{ "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
 
-	-- Colorschemes
-	{ "RRethy/base16-nvim", lazy = false, priority = 1000 },
+	-- Colorscheme
+	{ "catppuccin/nvim", lazy = false, priority = 1000 },
 
 	-- Line indentation visualization
 	{ "lukas-reineke/indent-blankline.nvim" },

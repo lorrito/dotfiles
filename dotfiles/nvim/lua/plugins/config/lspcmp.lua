@@ -1,5 +1,4 @@
 local status_ok_cmp, cmp = pcall(require, "cmp")
--- local status_ok_snippy, snippy = pcall(require, "snippy")
 local status_ok_luasnip, luasnip = pcall(require, "luasnip")
 local status_ok_lspconfig, lspconfig = pcall(require, "lspconfig")
 
@@ -12,11 +11,6 @@ if not status_ok_luasnip then
 	vim.notify("plugin " .. luasnip .. " failed to start.")
 	return
 end
-
--- if not status_ok_snippy then
--- 	vim.notify("plugin " .. snippy .. " failed to start.")
--- 	return
--- end
 
 if not status_ok_lspconfig then
 	vim.notify("plugin " .. lspconfig .. " failed to start.")
@@ -37,43 +31,25 @@ cmp.setup({
 	},
 	snippet = {
 		expand = function(args)
-			-- require("snippy").expand_snippet(args.body)
 			require("luasnip").lsp_expand(args.body)
 		end,
 	},
 	window = {
-		completion = cmp.config.window.bordered(),
-		documentation = cmp.config.window.bordered(),
+		completion = cmp.config.window.bordered({
+			col_offset = -3,
+			side_padding = 0,
+			winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine:Visual,Search:None",
+		}),
+		documentation = cmp.config.window.bordered({
+			winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine:Visual,Search:None",
+		}),
 	},
 	mapping = cmp.mapping.preset.insert({
-		["<C-b>"] = cmp.mapping.scroll_docs(-4),
-		["<C-f>"] = cmp.mapping.scroll_docs(4),
+		["<C-j>"] = cmp.mapping.scroll_docs(4),
+		["<C-k>"] = cmp.mapping.scroll_docs(-4),
 		["<C-Space>"] = cmp.mapping.complete(),
 		["<C-e>"] = cmp.mapping.abort(),
 		["<CR>"] = cmp.mapping.confirm({ select = false }),
-
-		-- Snippy super-tab configuration:
-		-- ["<Tab>"] = cmp.mapping(function(fallback)
-		-- 	if cmp.visible() then
-		-- 		cmp.select_next_item()
-		-- 	elseif snippy.can_expand_or_advance() then
-		-- 		snippy.expand_or_advance()
-		-- 	elseif has_words_before() then
-		-- 		cmp.complete()
-		-- 	else
-		-- 		fallback()
-		-- 	end
-		-- end, { "i", "s" }),
-		--
-		-- ["<S-Tab>"] = cmp.mapping(function(fallback)
-		-- 	if cmp.visible() then
-		-- 		cmp.select_prev_item()
-		-- 	elseif snippy.can_jump(-1) then
-		-- 		snippy.previous()
-		-- 	else
-		-- 		fallback()
-		-- 	end
-		-- end, { "i", "s" }),
 
 		-- Luasnip super-tab configuration:
 		["<Tab>"] = cmp.mapping(function(fallback)
@@ -110,8 +86,8 @@ cmp.setup({
 	}),
 	sources = cmp.config.sources({
 		{ name = "nvim_lsp" },
+		{ name = "nvim_lua" },
 		{ name = "luasnip" },
-		-- { name = "snippy" },
 		{ name = "buffer" },
 	}),
 })
@@ -170,20 +146,17 @@ lspconfig.rust_analyzer.setup({
 	root_dir = util.root_pattern("Cargo.toml"),
 	settings = {
 		["rust-analyzer"] = {
-			imports = {
-				granularity = {
-					group = "module",
-				},
-				prefix = "self",
-			},
 			diagnostics = {
 				enable = true,
 			},
 			cargo = {
-				allFeatures = true,
+				features = "all",
 			},
 			procMacro = {
 				enable = true,
+			},
+			files = {
+				watcher = "server",
 			},
 		},
 	},

@@ -7,7 +7,6 @@ end
 plugin.setup({
 	opts = {
 		position = "bottom",
-		height = 16,
 		icons = true,
 		include_declaration = { "lsp_references", "lsp_implementations", "lsp_definitions" },
 		signs = {

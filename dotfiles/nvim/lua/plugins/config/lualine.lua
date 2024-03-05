@@ -12,7 +12,7 @@ local filetype = {
 
 plugin.setup({
 	options = {
-		theme = "auto",
+		theme = "catppuccin",
 		refresh = {
 			statusline = 1000,
 			tabline = 1000,
@@ -22,7 +22,7 @@ plugin.setup({
 	},
 	sections = {
 		lualine_a = { "mode" },
-		lualine_b = { "branch", "diff" },
+		lualine_b = { "" },
 		lualine_c = { "filename" },
 		lualine_x = { "" },
 		lualine_y = { "encoding" },

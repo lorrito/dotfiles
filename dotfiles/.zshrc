@@ -1,4 +1,4 @@
-export PATH=$PATH:/home/lorran/.local/bin
+export PATH="$HOME/.local/bin:$PATH"
 
 export ZSH="$HOME/.oh-my-zsh"
 export MANPAGER='nvim +Man!'

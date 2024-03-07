@@ -9,7 +9,7 @@ plugin.setup({
 	auto_install = true,
 	highlight = {
 		enable = true,
-    disable = { "markdown" },
+    disable = { "gitcommit", "gitrebase", "markdown" },
 	},
 	indent = {
 		enable = false,

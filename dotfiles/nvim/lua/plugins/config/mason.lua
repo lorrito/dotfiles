@@ -39,14 +39,13 @@ masontools.setup({
 		"emmet-language-server",
 
 		-- Ruby
-		"solargraph",
-		"standardrb",
+    "standardrb",
+    "solargraph",
 
 		-- Rust
-		-- rustfmt should be installed using rustup
-		-- rustup component add rustfmt
+		-- rustfmt should be installed using rustup: rustup component add rustfmt
 		"rust-analyzer",
 	},
 	run_on_start = true,
-	start_delay = 512,
+	start_delay = 256,
 })

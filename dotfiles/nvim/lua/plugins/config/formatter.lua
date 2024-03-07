@@ -3,6 +3,7 @@ if not status_ok then
 	vim.notify("plugin " .. plugin .. " failed to start.")
 	return
 end
+
 local util = require("formatter.util")
 
 plugin.setup({
@@ -65,7 +66,7 @@ plugin.setup({
 						"quiet",
 						"--stderr",
 						"--stdin",
-						util.escape_path(util.get_current_buffer_file_path()),
+						util.escape_path(util.get_current_buffer_file_name()),
 					},
 					stdin = true,
 				}
@@ -79,8 +80,8 @@ plugin.setup({
 					args = {
 						"--emit=stdout", -- Output to stdout
 						util.escape_path(util.get_current_buffer_file_path()),
-            "--",
-            "-",
+						"--",
+						"-",
 					},
 					stdin = true,
 				}

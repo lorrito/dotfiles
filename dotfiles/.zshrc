@@ -3,6 +3,18 @@ export PATH=$PATH:$HOME/.cargo/bin:$HOME/.local/bin
 export ZSH="$HOME/.oh-my-zsh"
 export MANPAGER='nvim +Man!'
 
+# This makes opening the windows system default browser from within WSL easier.
+# wget https://pkg.wslutiliti.es/public.key
+# as root: pacman-key --add public.key
+# as root: pacman-key --lsign-key 2D4C887EB08424F157151C493DD50AA7E055D853
+# add to /etc/pacman.conf:
+# [wslutilities]
+# Server = https://pkg.wslutiliti.es/arch/
+# finally, as root: pacman -Sy && pacman -S wslu
+if [[ -n "$WSLENV" ]]; then
+    export BROWSER="wslview"
+fi
+
 ZSH_THEME="gentoo"
 
 plugins=(git zsh-autosuggestions zsh-syntax-highlighting)

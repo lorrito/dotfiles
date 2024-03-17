@@ -82,9 +82,15 @@ keymap("n", "$", "$l", opts)
 -- Scissors snippets keymaps
 vim.keymap.set("n", "<leader>se", function()
 	require("scissors").editSnippet()
-end)
+end, opts)
 
--- When used in visual mode prefills the selection as body.
+-- When used in visual mode prefills the selection as body
 vim.keymap.set({ "n", "x" }, "<leader>sa", function()
 	require("scissors").addNewSnippet()
-end)
+end, opts)
+
+-- Lsp configuration
+vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
+vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
+vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
+vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)

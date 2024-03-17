@@ -26,14 +26,6 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagn
 	},
 })
 
-local on_attach = function(_, bufnr)
-	local attach_opts = { silent = true, buffer = bufnr }
-	vim.keymap.set("n", "gD", vim.lsp.buf.declaration, attach_opts)
-	vim.keymap.set("n", "gd", vim.lsp.buf.definition, attach_opts)
-	vim.keymap.set("n", "K", vim.lsp.buf.hover, attach_opts)
-	vim.keymap.set("n", "gi", vim.lsp.buf.implementation, attach_opts)
-end
-
 lspconfig.rust_analyzer.setup({
 	filetypes = { "rust" },
 	root_dir = util.root_pattern("Cargo.toml"),
@@ -53,7 +45,6 @@ lspconfig.rust_analyzer.setup({
 			},
 		},
 	},
-	on_attach = on_attach,
 	capabilities = capabilities,
 })
 
@@ -61,14 +52,12 @@ lspconfig.solargraph.setup({
 	init_options = {
 		formatting = false,
 	},
-	on_attach = on_attach,
 	capabilities = capabilities,
 })
 
 local servers = { "emmet_language_server", "clangd", "lua_ls", "tsserver" }
 for _, lsp in ipairs(servers) do
 	lspconfig[lsp].setup({
-		on_attach = on_attach,
 		capabilities = capabilities,
 	})
 end

@@ -6,6 +6,11 @@ end
 
 local util = require("formatter.util")
 
+local prettier_args = {
+	"--stdin-filepath",
+	util.escape_path(util.get_current_buffer_file_path()),
+}
+
 plugin.setup({
 	logging = true,
 	log_level = vim.log.levels.WARN,
@@ -22,6 +27,17 @@ plugin.setup({
 					},
 					stdin = true,
 					try_node_modules = false,
+				}
+			end,
+		},
+		html = {
+			require("formatter.filetypes.html").prettier,
+			function()
+				return {
+					exe = "prettier",
+					args = prettier_args,
+					stdin = true,
+					try_node_modules = true,
 				}
 			end,
 		},
@@ -46,10 +62,7 @@ plugin.setup({
 			function()
 				return {
 					exe = "prettier",
-					args = {
-						"--stdin-filepath",
-						util.escape_path(util.get_current_buffer_file_path()),
-					},
+					args = prettier_args,
 					stdin = true,
 					try_node_modules = true,
 				}

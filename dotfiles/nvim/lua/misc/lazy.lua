@@ -14,6 +14,9 @@ require("lazy").setup({
 	-- Formatting code with C-f
 	{ "mhartington/formatter.nvim" },
 
+  -- Renaming in big projects
+  { "nvim-pack/nvim-spectre" },
+
 	-- A plugin to work with my notes
 	{ "jakewvincent/mkdnflow.nvim" },
 

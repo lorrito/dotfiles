@@ -21,6 +21,8 @@ plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
+# For all folders on the current dir, git pull their configured remote
+alias rgp="find . -maxdepth 1 -type d -exec sh -c 'echo {} && git -C {} pull' \; 2>/dev/null"
 alias ls='ls --tabsize=0 --color=auto --human-readable --group-directories-first'
 # Should be added on git.config
 # git config --global alias.ls "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"

@@ -55,7 +55,7 @@ lspconfig.solargraph.setup({
 	capabilities = capabilities,
 })
 
-local servers = { "emmet_language_server", "clangd", "lua_ls", "tsserver" }
+local servers = { "clangd", "emmet_language_server", "lua_ls", "tsserver" }
 for _, lsp in ipairs(servers) do
 	lspconfig[lsp].setup({
 		capabilities = capabilities,

@@ -57,7 +57,7 @@ require("lazy").setup({
 		version = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
 		-- install jsregexp (optional!).
 		build = "make install_jsregexp",
-		dependencies = { "rafamadriz/friendly-snippets", "benfowler/telescope-luasnip.nvim" },
+		dependencies = { "rafamadriz/friendly-snippets", "mlaursen/vim-react-snippets", "benfowler/telescope-luasnip.nvim" },
 	},
 	{ "saadparwaiz1/cmp_luasnip" },
 

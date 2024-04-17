@@ -14,8 +14,8 @@ require("lazy").setup({
 	-- Formatting code with C-f
 	{ "mhartington/formatter.nvim" },
 
-  -- Renaming in big projects
-  { "nvim-pack/nvim-spectre" },
+	-- Renaming in big projects
+	{ "nvim-pack/nvim-spectre" },
 
 	-- A plugin to work with my notes
 	{ "jakewvincent/mkdnflow.nvim" },
@@ -57,7 +57,11 @@ require("lazy").setup({
 		version = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
 		-- install jsregexp (optional!).
 		build = "make install_jsregexp",
-		dependencies = { "rafamadriz/friendly-snippets", "mlaursen/vim-react-snippets", "benfowler/telescope-luasnip.nvim" },
+		dependencies = {
+			"rafamadriz/friendly-snippets",
+			"mlaursen/vim-react-snippets",
+			"benfowler/telescope-luasnip.nvim",
+		},
 	},
 	{ "saadparwaiz1/cmp_luasnip" },
 
@@ -80,6 +84,9 @@ require("lazy").setup({
 
 	-- See some pretty diagnostics
 	{ "folke/trouble.nvim" },
+
+	-- Autopairs!
+	{ "windwp/nvim-autopairs", event = "InsertEnter", config = true },
 
 	-- Comment out and uncomment
 	{ "numToStr/Comment.nvim" },

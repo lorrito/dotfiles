@@ -11,6 +11,8 @@ if not status_ok_cmp then
 	return
 end
 
+local cmp_autopairs = require("nvim-autopairs.completion.cmp")
+
 local has_words_before = function()
 	unpack = unpack or table.unpack
 	local line, col = unpack(vim.api.nvim_win_get_cursor(0))
@@ -18,6 +20,16 @@ local has_words_before = function()
 end
 
 cmp.setup({
+	enabled = function()
+		-- disable completion in comments
+		local context = require("cmp.config.context")
+		-- keep command mode completion enabled when cursor is in a comment
+		if vim.api.nvim_get_mode().mode == "c" then
+			return true
+		else
+			return not context.in_treesitter_capture("comment") and not context.in_syntax_group("Comment")
+		end
+	end,
 	experimental = {
 		ghost_text = true,
 	},
@@ -99,3 +111,5 @@ cmp.setup.cmdline(":", {
 		{ name = "cmdline" },
 	}),
 })
+
+cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())

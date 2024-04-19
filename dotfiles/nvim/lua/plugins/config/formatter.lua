@@ -83,6 +83,17 @@ plugin.setup({
 				}
 			end,
 		},
+		javascriptreact = {
+			require("formatter.filetypes.javascript").prettier,
+			function()
+				return {
+					exe = "prettier",
+					args = prettier_args,
+					stdin = true,
+					try_node_modules = true,
+				}
+			end,
+		},
 		ruby = {
 			require("formatter.filetypes.ruby").standardrb,
 			function()

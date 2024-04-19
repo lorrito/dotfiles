@@ -36,7 +36,7 @@ masontools.setup({
 		"typescript-language-server",
 
 		-- HTML
-		"emmet-language-server",
+		"html-lsp",
 
 		-- Ruby
     "standardrb",

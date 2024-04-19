@@ -55,7 +55,19 @@ lspconfig.solargraph.setup({
 	capabilities = capabilities,
 })
 
-local servers = { "clangd", "html", "lua_ls", "tsserver" }
+lspconfig.tsserver.setup({
+	capabilities = capabilities,
+	-- init_options = {},
+	completions = {
+		completeFunctionCalls = true,
+	},
+  -- idk how to make this work
+	-- diagnostics = {
+	-- 	ignoredCodes = { 80001 },
+	-- },
+})
+
+local servers = { "clangd", "html", "lua_ls" }
 for _, lsp in ipairs(servers) do
 	lspconfig[lsp].setup({
 		capabilities = capabilities,

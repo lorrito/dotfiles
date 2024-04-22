@@ -32,3 +32,4 @@ vim.opt.whichwrap:remove({ "h", "l" })
 vim.opt.ignorecase = true
 vim.opt.virtualedit = "onemore" -- makes the cursor go one more at the end of the line
 vim.opt.laststatus = 0
+vim.opt.shortmess:append("I")

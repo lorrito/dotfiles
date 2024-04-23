@@ -14,6 +14,12 @@ require("lazy").setup({
 	-- Formatting code with C-f
 	{ "mhartington/formatter.nvim" },
 
+	-- Visualize css colors from within neovim
+	{
+		"brenoprata10/nvim-highlight-colors",
+		config = true,
+	},
+
 	-- Renaming in big projects
 	{ "nvim-pack/nvim-spectre" },
 
@@ -90,6 +96,7 @@ require("lazy").setup({
 
 	-- Comment out and uncomment
 	{ "numToStr/Comment.nvim" },
+	{ "JoosepAlviste/nvim-ts-context-commentstring" },
 
 	-- Add status line below
 	{ "nvim-lualine/lualine.nvim" },

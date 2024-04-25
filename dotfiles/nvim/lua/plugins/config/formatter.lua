@@ -15,7 +15,7 @@ plugin.setup({
 	logging = true,
 	log_level = vim.log.levels.WARN,
 	filetype = {
-    c = {
+		c = {
 			require("formatter.filetypes.c").clangformat,
 			function()
 				return {
@@ -30,7 +30,7 @@ plugin.setup({
 				}
 			end,
 		},
-    cpp = {
+		cpp = {
 			require("formatter.filetypes.c").clangformat,
 			function()
 				return {
@@ -49,10 +49,9 @@ plugin.setup({
 			require("formatter.filetypes.html").prettier,
 			function()
 				return {
-					exe = "prettier",
-					args = prettier_args,
+					exe = "prettierd",
+					args = { util.escape_path(util.get_current_buffer_file_path()) },
 					stdin = true,
-					try_node_modules = true,
 				}
 			end,
 		},
@@ -73,24 +72,22 @@ plugin.setup({
 			end,
 		},
 		javascript = {
-			require("formatter.filetypes.javascript").prettier,
+			require("formatter.filetypes.javascript").prettierd,
 			function()
 				return {
-					exe = "prettier",
-					args = prettier_args,
+					exe = "prettierd",
+					args = { util.escape_path(util.get_current_buffer_file_path()) },
 					stdin = true,
-					try_node_modules = true,
 				}
 			end,
 		},
 		javascriptreact = {
-			require("formatter.filetypes.javascript").prettier,
+			require("formatter.filetypes.javascriptreact").prettier,
 			function()
 				return {
-					exe = "prettier",
-					args = prettier_args,
+					exe = "prettierd",
+					args = { util.escape_path(util.get_current_buffer_file_path()) },
 					stdin = true,
-					try_node_modules = true,
 				}
 			end,
 		},

@@ -32,7 +32,7 @@ masontools.setup({
 		"lua-language-server",
 
 		-- Javascript
-		"prettier",
+		"prettierd",
 		"typescript-language-server",
 
 		-- HTML

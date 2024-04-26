@@ -2,13 +2,9 @@ export PATH=$PATH:$HOME/.cargo/bin:$HOME/.local/bin
 export ZSH="$HOME/.oh-my-zsh"
 
 # This checks for nvim and adds it as manpager
-if [[ -x $(command -v nvim) ]]; then 
+if [[ -x $(command -v nvim) ]]; then
   export MANPAGER='nvim +Man!'
 fi
-
-# This loads nvm
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 
 # This makes opening the windows system default browser from within WSL easier.
 # made following wslutilities instructions
@@ -21,7 +17,7 @@ fi
 
 ZSH_THEME="gentoo"
 
-plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(asdf git zsh-autosuggestions zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 

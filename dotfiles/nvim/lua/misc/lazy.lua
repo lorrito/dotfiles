@@ -15,10 +15,7 @@ require("lazy").setup({
 	{ "mhartington/formatter.nvim" },
 
 	-- Visualize css colors from within neovim
-	{
-		"brenoprata10/nvim-highlight-colors",
-		config = true,
-	},
+	{ "brenoprata10/nvim-highlight-colors", config = true },
 
 	-- Renaming in big projects
 	{ "nvim-pack/nvim-spectre" },
@@ -50,18 +47,14 @@ require("lazy").setup({
 	{ "hrsh7th/cmp-buffer" },
 	{ "hrsh7th/cmp-path" },
 	{ "hrsh7th/cmp-cmdline" },
+	{ "saadparwaiz1/cmp_luasnip" },
 	{ "hrsh7th/nvim-cmp" },
-
-	-- Snippet engines
-	{ "dcampos/nvim-snippy" },
-	{ "dcampos/cmp-snippy" },
 
 	-- Going from snippy to luasnip in order to use nvim-scissors
 	{
 		"L3MON4D3/LuaSnip",
 		-- follow latest release.
-		version = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
-		-- install jsregexp (optional!).
+		version = "v2.*",
 		build = "make install_jsregexp",
 		dependencies = {
 			"rafamadriz/friendly-snippets",
@@ -69,7 +62,6 @@ require("lazy").setup({
 			"benfowler/telescope-luasnip.nvim",
 		},
 	},
-	{ "saadparwaiz1/cmp_luasnip" },
 
 	-- Create snippets from selection
 	{ "chrisgrieser/nvim-scissors" },
@@ -86,7 +78,7 @@ require("lazy").setup({
 	{ "WhoIsSethDaniel/mason-tool-installer.nvim" },
 
 	-- Live actions previews
-	{ "aznhe21/actions-preview.nvim", lazy = false },
+	{ "aznhe21/actions-preview.nvim" },
 
 	-- See some pretty diagnostics
 	{ "folke/trouble.nvim" },

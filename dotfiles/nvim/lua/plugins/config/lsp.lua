@@ -61,13 +61,20 @@ lspconfig.tsserver.setup({
 	completions = {
 		completeFunctionCalls = true,
 	},
-  -- idk how to make this work
+	-- idk how to make this work
 	-- diagnostics = {
 	-- 	ignoredCodes = { 80001 },
 	-- },
 })
 
-local servers = { "clangd", "html", "lua_ls" }
+lspconfig.lua_ls.setup({
+	capabilities = capabilities,
+	diagnostics = {
+		globals = { "vim" },
+	},
+})
+
+local servers = { "clangd", "html" }
 for _, lsp in ipairs(servers) do
 	lspconfig[lsp].setup({
 		capabilities = capabilities,

@@ -38,9 +38,6 @@ keymap("n", "<S-Right>", ":vertical resize +2<CR>", opts)
 -- Clear highlights
 keymap("n", "<leader>h", ":noh<CR>", opts)
 
--- Close tab and go to another buffer, if there's one.
-keymap("n", "<C-x>", ":bd<CR>:bl<CR>", opts)
-
 -- Save file
 keymap("n", "<C-s>", ":w<CR>", opts)
 
@@ -99,3 +96,24 @@ vim.keymap.set("n", "<leader>S", '<cmd>lua require("spectre").toggle()<CR>', opt
 vim.keymap.set("n", "<leader>sw", '<cmd>lua require("spectre").open_visual({select_word=true})<CR>', opts)
 vim.keymap.set("v", "<leader>sw", '<esc><cmd>lua require("spectre").open_visual()<CR>', opts)
 vim.keymap.set("n", "<leader>sp", '<cmd>lua require("spectre").open_file_search({select_word=true})<CR>', opts)
+
+-- Close tab and go to another buffer, if there's one.
+local status_ok_br, br = pcall(require, "mini.bufremove")
+if not status_ok_br then
+	vim.notify("failed loading bufremove")
+	return
+end
+-- Code from LazyVim.editor.lua
+vim.keymap.set("n", "<C-x>", function()
+	if vim.bo.modified then
+		local choice = vim.fn.confirm(("Save changes to %q?"):format(vim.fn.bufname()), "&Yes\n&No\n&Cancel")
+		if choice == 1 then -- Yes
+			vim.cmd.write()
+			br.delete(0)
+		elseif choice == 2 then -- No
+			br.delete(0, true)
+		end
+	else
+		br.delete(0)
+	end
+end, opts)

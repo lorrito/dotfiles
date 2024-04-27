@@ -69,6 +69,9 @@ require("lazy").setup({
 	-- Buffers on top
 	{ "akinsho/bufferline.nvim" },
 
+	-- Close buffers
+	{ "echasnovski/mini.nvim", version = false },
+
 	-- Configuration plugin for neovim's lsp
 	{ "neovim/nvim-lspconfig" },
 

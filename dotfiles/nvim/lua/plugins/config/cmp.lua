@@ -19,6 +19,10 @@ local has_words_before = function()
 	return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
 end
 
+local ELLIPSIS_CHAR = "…"
+local MIN_LABEL_WIDTH = 20
+local MAX_LABEL_WIDTH = 20
+
 cmp.setup({
 	enabled = function()
 		-- disable completion in comments
@@ -30,8 +34,22 @@ cmp.setup({
 			return not context.in_treesitter_capture("comment") and not context.in_syntax_group("Comment")
 		end
 	end,
+	-- taken from https://github.com/hrsh7th/nvim-cmp/issues/980
+	formatting = {
+		format = function(_, vim_item)
+			local label = vim_item.abbr
+			local truncated_label = vim.fn.strcharpart(label, 0, MAX_LABEL_WIDTH)
+			if truncated_label ~= label then
+				vim_item.abbr = truncated_label .. ELLIPSIS_CHAR
+			elseif string.len(label) < MIN_LABEL_WIDTH then
+				local padding = string.rep(" ", MIN_LABEL_WIDTH - string.len(label))
+				vim_item.abbr = label .. padding
+			end
+			return vim_item
+		end,
+	},
 	experimental = {
-		ghost_text = true,
+		ghost_text = { hl_group = "Comment" },
 	},
 	snippet = {
 		expand = function(args)
@@ -89,8 +107,10 @@ cmp.setup({
 		end, { "i" }),
 	}),
 	sources = cmp.config.sources({
-		{ name = "luasnip" },
 		{ name = "nvim_lsp" },
+		{ name = "nvim_lsp_signature_help" },
+		{ name = "luasnip" },
+	}, {
 		{ name = "nvim_lua" },
 	}),
 })

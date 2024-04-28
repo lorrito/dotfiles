@@ -1,35 +1,61 @@
--- Disabling netwr in order to use NvimTree
+-- disabling netwr in order to use NvimTree
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
--- Options for a better quality of life
+-- options for a better quality of life
 vim.opt.background = "dark"
-vim.opt.backup = false -- disables backup
-vim.opt.conceallevel = 0 -- makes so `` appears on markdown files
-vim.opt.completeopt = { "menuone", "noselect" } -- treats the tab completiom menu
-vim.opt.fileencoding = "utf-8" -- sets the default encoding to utf-8
-vim.opt.hlsearch = true -- highlights matches on search pattern
-vim.opt.mouse = "a" -- disables the mouse everywhere
-vim.opt.showmode = false -- disables the mode showing at the status bar
+-- disables backup
+vim.opt.backup = false
+-- makes so `` appears on markdown files
+vim.opt.conceallevel = 0
+-- treats the tab completiom menu
+vim.opt.completeopt = { "menuone", "noselect" }
+-- sets the default encoding to utf-8
+vim.opt.fileencoding = "utf-8"
+-- highlights matches on search pattern
+vim.opt.hlsearch = true
+-- disables the mouse everywhere
+vim.opt.mouse = "a"
+-- disables the mode showing at the status bar
+vim.opt.showmode = false
+-- smarter case insensitivity/sensitivity
 vim.opt.smartcase = true
+-- case-insensitive search/replace
+vim.opt.ignorecase = true
+-- always draw signcolumn on the left
 vim.opt.signcolumn = "yes"
+-- maximum number of items to show on popups
 vim.opt.pumheight = 10
-vim.opt.cmdheight = 1 -- changes the size of the cmdheight below the lualine
+-- changes the size of the cmdheight below the lualine
+vim.opt.cmdheight = 1
+-- makes indenting smarter (i guess)
 vim.opt.smartindent = true
+-- makes splitted windows to be keept on the current window
 vim.opt.splitbelow = true
 vim.opt.splitright = true
-vim.opt.swapfile = false -- disables swap file creation
-vim.opt.updatetime = 100 -- makes so the update time is faster, for a faster <TAB> completion
-vim.opt.expandtab = true -- converts tabs to spaces
+-- disables swap file creation
+vim.opt.swapfile = false
+-- makes so the update time is faster, for a faster <TAB> completion
+vim.opt.updatetime = 100
+-- converts tabs to spaces
+vim.opt.expandtab = true
+-- some colors
 vim.opt.termguicolors = true
+-- sets the default tab (as spaces) size
 vim.opt.shiftwidth = 2
 vim.opt.tabstop = 2
-vim.opt.cursorline = true -- highlights the current line
+-- highlights the current line
+vim.opt.cursorline = true
+-- show relative numbers and real line numbers
 vim.opt.number = true
 vim.opt.relativenumber = true
+-- disables wrapping
 vim.opt.wrap = false
+-- stop h and l from going up/down the line when line beginning/end was reached
 vim.opt.whichwrap:remove({ "h", "l" })
-vim.opt.ignorecase = true
-vim.opt.virtualedit = "onemore" -- makes the cursor go one more at the end of the line
+-- makes the cursor go one more at the end of the line
+vim.opt.virtualedit = "onemore"
+-- removes horizontally splitted windows status line
 vim.opt.laststatus = 0
+-- disable intro message
 vim.opt.shortmess:append("I")

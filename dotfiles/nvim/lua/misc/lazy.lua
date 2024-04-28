@@ -43,12 +43,13 @@ require("lazy").setup({
 	{ "nvim-tree/nvim-tree.lua" },
 
 	-- Completion related
+	{ "hrsh7th/nvim-cmp" },
 	{ "hrsh7th/cmp-nvim-lsp" },
 	{ "hrsh7th/cmp-buffer" },
 	{ "hrsh7th/cmp-path" },
 	{ "hrsh7th/cmp-cmdline" },
+	{ "hrsh7th/cmp-nvim-lsp-signature-help" },
 	{ "saadparwaiz1/cmp_luasnip" },
-	{ "hrsh7th/nvim-cmp" },
 
 	-- Going from snippy to luasnip in order to use nvim-scissors
 	{
@@ -94,5 +95,5 @@ require("lazy").setup({
 	{ "JoosepAlviste/nvim-ts-context-commentstring" },
 
 	-- Add status line below
-	{ "nvim-lualine/lualine.nvim" },
+	{ "nvim-lualine/lualine.nvim", lazy = false },
 })

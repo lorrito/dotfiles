@@ -31,6 +31,16 @@ lspconfig.rust_analyzer.setup({
 	root_dir = util.root_pattern("Cargo.toml"),
 	settings = {
 		["rust-analyzer"] = {
+			imports = {
+				group = {
+					enable = false,
+				},
+			},
+			completion = {
+				postfix = {
+					enable = false,
+				},
+			},
 			diagnostics = {
 				enable = true,
 			},
@@ -80,3 +90,4 @@ for _, lsp in ipairs(servers) do
 		capabilities = capabilities,
 	})
 end
+

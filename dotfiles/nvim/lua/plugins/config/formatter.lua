@@ -55,6 +55,16 @@ plugin.setup({
 				}
 			end,
 		},
+		json = {
+			require("formatter.filetypes.json").prettierd,
+			function()
+				return {
+					exe = "prettierd",
+					args = { util.escape_path(util.get_current_buffer_file_path()) },
+					stdin = true,
+				}
+			end,
+		},
 		lua = {
 			require("formatter.filetypes.lua").stylua,
 			function()

@@ -43,7 +43,7 @@ require("lazy").setup({
 	{ "nvim-tree/nvim-tree.lua" },
 
 	-- Completion related
-	{ "hrsh7th/nvim-cmp" },
+	{ "hrsh7th/nvim-cmp", commit = "2fb2a3cf78bbc1b0bea030e8c8728985af1cf302" }, -- versions after that have some problems with ghost_text
 	{ "hrsh7th/cmp-nvim-lsp" },
 	{ "hrsh7th/cmp-buffer" },
 	{ "hrsh7th/cmp-path" },
@@ -74,7 +74,7 @@ require("lazy").setup({
 	{ "echasnovski/mini.nvim", version = false },
 
 	-- Configuration plugin for neovim's lsp
-	{ "neovim/nvim-lspconfig" },
+	{ "neovim/nvim-lspconfig", event = { "BufReadPre", "BufNewFile" } },
 
 	-- Easier management of external packages, like LSP, DAP, formatters, etc.
 	{ "williamboman/mason.nvim" },

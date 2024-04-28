@@ -1,8 +1,6 @@
 local status_ok_luasnip, luasnip = pcall(require, "luasnip")
 local status_ok_lspconfig, lspconfig = pcall(require, "lspconfig")
 
-local util = require("lspconfig/util")
-
 if not status_ok_luasnip then
 	vim.notify("plugin " .. luasnip .. " failed to start.")
 	return
@@ -12,6 +10,9 @@ if not status_ok_lspconfig then
 	vim.notify("plugin " .. lspconfig .. " failed to start.")
 	return
 end
+
+-- rounded border on :LspInfo
+require("lspconfig.ui.windows").default_options.border = "rounded"
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
@@ -26,68 +27,54 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagn
 	},
 })
 
-lspconfig.rust_analyzer.setup({
-	filetypes = { "rust" },
-	root_dir = util.root_pattern("Cargo.toml"),
-	settings = {
-		["rust-analyzer"] = {
-			imports = {
-				group = {
-					enable = false,
-				},
-			},
-			completion = {
-				postfix = {
-					enable = false,
-				},
-			},
-			diagnostics = {
-				enable = true,
-			},
-			cargo = {
-				features = "all",
-			},
-			procMacro = {
-				enable = true,
-			},
-			files = {
-				watcher = "server",
-			},
-		},
-	},
-	capabilities = capabilities,
-})
-
 lspconfig.solargraph.setup({
+	capabilities = capabilities,
 	init_options = {
 		formatting = false,
 	},
-	capabilities = capabilities,
 })
 
 lspconfig.tsserver.setup({
 	capabilities = capabilities,
-	-- init_options = {},
 	completions = {
 		completeFunctionCalls = true,
 	},
-	-- idk how to make this work
-	-- diagnostics = {
-	-- 	ignoredCodes = { 80001 },
-	-- },
 })
 
 lspconfig.lua_ls.setup({
 	capabilities = capabilities,
-	diagnostics = {
-		globals = { "vim" },
+	on_init = function(client)
+		client.config.settings.Lua = vim.tbl_deep_extend("force", client.config.settings.Lua, {
+			runtime = {
+				version = "LuaJIT",
+			},
+			workspace = {
+				checkThirdParty = false,
+				library = {
+					vim.env.VIMRUNTIME,
+				},
+			},
+		})
+	end,
+	settings = {
+		Lua = {
+			diagnostics = {
+				-- Get the language server to recognize the `vim` global
+				globals = { "vim" },
+			},
+		},
 	},
 })
 
-local servers = { "clangd", "html" }
+lspconfig.rust_analyzer.setup({})
+
+local servers = {
+	"clangd",
+	"html",
+}
+
 for _, lsp in ipairs(servers) do
 	lspconfig[lsp].setup({
 		capabilities = capabilities,
 	})
 end
-

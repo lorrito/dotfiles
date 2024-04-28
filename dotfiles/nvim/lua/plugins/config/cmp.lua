@@ -49,7 +49,7 @@ cmp.setup({
 		end,
 	},
 	experimental = {
-		ghost_text = { hl_group = "Comment" },
+		ghost_text = { hl_group = "LspCodeLens" },
 	},
 	snippet = {
 		expand = function(args)
@@ -110,8 +110,6 @@ cmp.setup({
 		{ name = "nvim_lsp" },
 		{ name = "nvim_lsp_signature_help" },
 		{ name = "luasnip" },
-	}, {
-		{ name = "nvim_lua" },
 	}),
 })
 

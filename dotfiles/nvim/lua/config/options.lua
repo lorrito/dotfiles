@@ -52,7 +52,7 @@ vim.opt.relativenumber = true
 -- disables wrapping
 vim.opt.wrap = false
 -- stop h and l from going up/down the line when line beginning/end was reached
-vim.opt.whichwrap:remove({ "h", "l" })
+vim.opt.whichwrap:remove({ "w", "b", "h", "l" })
 -- makes the cursor go one more at the end of the line
 vim.opt.virtualedit = "onemore"
 -- removes horizontally splitted windows status line

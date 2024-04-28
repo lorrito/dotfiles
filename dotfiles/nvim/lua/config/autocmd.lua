@@ -1,5 +1,4 @@
----@diagnostic disable: undefined-global
--- Autocmd to close NvimTree if it is the only buffer left after closing another buffer
+-- close NvimTree if it is the only buffer left after closing another buffer
 vim.api.nvim_create_autocmd("QuitPre", {
 	callback = function()
 		local tree_wins = {}

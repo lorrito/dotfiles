@@ -7,7 +7,7 @@ require("lazy").setup({
 
 	-- Colorscheme(s)
 	{ "catppuccin/nvim", lazy = false, priority = 1000 },
-  { "rebelot/kanagawa.nvim", lazy = false, priority = 1000 },
+	{ "rebelot/kanagawa.nvim", lazy = false, priority = 1000 },
 
 	-- Line indentation visualization
 	{ "lukas-reineke/indent-blankline.nvim" },
@@ -16,11 +16,11 @@ require("lazy").setup({
 	{ "mhartington/formatter.nvim" },
 
 	-- Visualize css colors from within neovim
-	{ "brenoprata10/nvim-highlight-colors", config = true },
+	{ "norcalli/nvim-colorizer.lua" },
 
 	-- Renaming-related plugins
 	{ "nvim-pack/nvim-spectre" },
-  { "smjonas/inc-rename.nvim", config = true },
+	{ "smjonas/inc-rename.nvim", config = true },
 
 	-- A plugin to work with my notes
 	{ "jakewvincent/mkdnflow.nvim" },

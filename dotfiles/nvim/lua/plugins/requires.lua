@@ -2,6 +2,7 @@ local config = "plugins.config."
 
 require(config .. "actions")
 require(config .. "bufferline")
+require(config .. "colorizer")
 require(config .. "cmp")
 require(config .. "comment")
 require(config .. "formatter")

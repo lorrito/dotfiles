@@ -17,6 +17,12 @@ fi
 
 ZSH_THEME="gentoo"
 
+autoload -Uz compinit
+for dump in ~/.zcompdump(N.mh+24); do
+  compinit
+done
+compinit -C
+
 plugins=(asdf git zsh-autosuggestions zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh

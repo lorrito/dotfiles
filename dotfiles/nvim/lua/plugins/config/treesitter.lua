@@ -12,6 +12,6 @@ plugin.setup({
     disable = { "gitcommit", "gitrebase", "markdown" },
 	},
 	indent = {
-		enable = false,
+		enable = true,
 	},
 })

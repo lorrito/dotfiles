@@ -2,8 +2,8 @@
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
--- options for a better quality of life
-vim.opt.background = "dark"
+-- adds directories recursively to :find
+vim.opt.path:append("**")
 -- disables backup
 vim.opt.backup = false
 -- makes so `` appears on markdown files

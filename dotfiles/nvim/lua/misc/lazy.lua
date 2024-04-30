@@ -5,8 +5,9 @@ require("lazy").setup({
 	-- Treesitter!
 	{ "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
 
-	-- Colorscheme
+	-- Colorscheme(s)
 	{ "catppuccin/nvim", lazy = false, priority = 1000 },
+  { "rebelot/kanagawa.nvim", lazy = false, priority = 1000 },
 
 	-- Line indentation visualization
 	{ "lukas-reineke/indent-blankline.nvim" },
@@ -30,20 +31,23 @@ require("lazy").setup({
 	{
 		"nvim-telescope/telescope.nvim",
 		dependencies = {
-			{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+			{
+				"nvim-telescope/telescope-fzf-native.nvim",
+				build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
+			},
 			"nvim-telescope/telescope-ui-select.nvim",
 		},
 		branch = "0.1.x",
 	},
 
 	-- More icons for neovim
-	{ "nvim-tree/nvim-web-devicons" },
+	{ "nvim-tree/nvim-web-devicons", config = true },
 
 	-- Vertical tree file explorer
 	{ "nvim-tree/nvim-tree.lua" },
 
 	-- Completion related
-	{ "hrsh7th/nvim-cmp", commit = "2fb2a3cf78bbc1b0bea030e8c8728985af1cf302" }, -- versions after that have some problems with ghost_text
+	{ "hrsh7th/nvim-cmp", lazy = false },
 	{ "hrsh7th/cmp-nvim-lsp" },
 	{ "hrsh7th/cmp-buffer" },
 	{ "hrsh7th/cmp-path" },

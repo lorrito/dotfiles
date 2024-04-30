@@ -102,17 +102,17 @@ plugin.setup({
 			end,
 		},
 		ruby = {
-			require("formatter.filetypes.ruby").standardrb,
+			require("formatter.filetypes.ruby").rubocop,
 			function()
 				return {
-					exe = "standardrb",
+					exe = "rubocop",
 					args = {
-						"--fix",
-						"--format",
-						"quiet",
-						"--stderr",
+            "--fix-layout",
 						"--stdin",
 						util.escape_path(util.get_current_buffer_file_name()),
+            "--format",
+            "files",
+						"--stderr",
 					},
 					stdin = true,
 				}

@@ -20,7 +20,7 @@ capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
 	underline = false,
 	signs = {
-		severity_limit = "Hint",
+		severity_limit = "Warning",
 	},
 	virtual_text = {
 		severity_limit = "Error",

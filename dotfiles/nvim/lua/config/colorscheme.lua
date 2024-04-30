@@ -1,11 +1,17 @@
-local status_ok, plugin = pcall(require, "catppuccin")
+local status_ok_catppuccin, catppuccin = pcall(require, "catppuccin")
+local status_ok_kanagawa, kanagawa = pcall(require, "kanagawa")
 
-if not status_ok then
-	vim.notify("plugin " .. plugin .. " failed to start.")
+if not status_ok_catppuccin then
+	vim.notify("plugin " .. catppuccin .. " failed to start.")
 	return
 end
 
-plugin.setup({
+if not status_ok_kanagawa then
+	vim.notify("plugin " .. kanagawa .. " failed to start.")
+	return
+end
+
+catppuccin.setup({
 	no_italic = true,
 	background = {
 		light = "latte",
@@ -43,8 +49,35 @@ plugin.setup({
 	},
 })
 
-local status_ok_call, _ = pcall(vim.cmd, "colorscheme " .. "catppuccin")
+kanagawa.setup({
+	compile = false,
+	undercurl = false,
+	commentStyle = { italic = false },
+	functionStyle = {},
+	keywordStyle = { italic = false },
+	statementStyle = { bold = true },
+	typeStyle = {},
+	transparent = false,
+	dimInactive = false,
+	terminalColors = true,
+	colors = {
+		palette = {},
+		theme = { wave = {}, lotus = {}, dragon = {}, all = {} },
+	},
+	overrides = function(colors)
+		return {}
+	end,
+	background = {
+		dark = "wave",
+		light = "lotus",
+	},
+})
 
-if not status_ok_call then
+local colorscheme = "kanagawa"
+---@diagnostic disable-next-line: param-type-mismatch
+local status_ok_colorscheme, _ = pcall(vim.cmd, "colorscheme " .. colorscheme)
+
+if not status_ok_colorscheme then
 	vim.notify("colorscheme not found.")
+	vim.cmd("colorscheme slate")
 end

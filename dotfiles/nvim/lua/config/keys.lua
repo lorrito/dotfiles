@@ -22,7 +22,7 @@ keymap("", "<S-j>", "<Nop>", opts)
 keymap("n", "n", "nzz", opts)
 keymap("n", "N", "Nzz", opts)
 
--- better softwrap moving down and up 
+-- better softwrap moving down and up
 keymap("n", "j", "gj", opts)
 keymap("n", "k", "gk", opts)
 
@@ -103,6 +103,11 @@ vim.keymap.set("n", "<leader>S", '<cmd>lua require("spectre").toggle()<CR>', opt
 vim.keymap.set("n", "<leader>sw", '<cmd>lua require("spectre").open_visual({select_word=true})<CR>', opts)
 vim.keymap.set("v", "<leader>sw", '<esc><cmd>lua require("spectre").open_visual()<CR>', opts)
 vim.keymap.set("n", "<leader>sp", '<cmd>lua require("spectre").open_file_search({select_word=true})<CR>', opts)
+
+-- inc-rename configuration
+vim.keymap.set("n", "<leader>rn", function()
+	return ":IncRename " .. vim.fn.expand("<cword>")
+end, { expr = true })
 
 -- close tab and go to another buffer, if there's one.
 local status_ok_br, br = pcall(require, "mini.bufremove")

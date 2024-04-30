@@ -18,8 +18,9 @@ require("lazy").setup({
 	-- Visualize css colors from within neovim
 	{ "brenoprata10/nvim-highlight-colors", config = true },
 
-	-- Renaming in big projects
+	-- Renaming-related plugins
 	{ "nvim-pack/nvim-spectre" },
+  { "smjonas/inc-rename.nvim", config = true },
 
 	-- A plugin to work with my notes
 	{ "jakewvincent/mkdnflow.nvim" },

@@ -6,7 +6,6 @@ require("lazy").setup({
 	{ "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
 
 	-- Colorscheme(s)
-	{ "catppuccin/nvim", lazy = false, priority = 1000 },
 	{ "rebelot/kanagawa.nvim", lazy = false, priority = 1000 },
 
 	-- Line indentation visualization

@@ -58,12 +58,12 @@ cmp.setup({
 	},
 	window = {
 		completion = cmp.config.window.bordered({
+			winhighlight = "Normal:,FloatBorder:,CursorLine:Visual,Search:None",
 			col_offset = -3,
 			side_padding = 0,
-			winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine:Visual,Search:None",
 		}),
 		documentation = cmp.config.window.bordered({
-			winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine:Visual,Search:None",
+			winhighlight = "Normal:,FloatBorder:,CursorLine:Visual,Search:None",
 		}),
 	},
 	mapping = cmp.mapping.preset.insert({

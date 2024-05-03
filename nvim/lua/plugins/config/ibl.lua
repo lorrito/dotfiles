@@ -7,5 +7,5 @@ plugin.overwrite({
 	scope = {
 		enabled = false,
 	},
-	exclude = { filetypes = { "alpha", "md" } },
+	exclude = { filetypes = { "alpha", "md", "markdown" } },
 })

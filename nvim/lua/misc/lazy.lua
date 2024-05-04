@@ -2,9 +2,6 @@ require("lazy").setup({
 	-- Necessary for some plugins
 	{ "nvim-lua/plenary.nvim" },
 
-	-- Treesitter!
-	{ "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
-
 	-- Colorscheme(s)
 	{ "rebelot/kanagawa.nvim", lazy = false, priority = 1000 },
 

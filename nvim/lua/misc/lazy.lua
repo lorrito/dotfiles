@@ -59,8 +59,6 @@ require("lazy").setup({
 		build = "make install_jsregexp",
 		dependencies = {
 			"rafamadriz/friendly-snippets",
-			"mlaursen/vim-react-snippets",
-			"benfowler/telescope-luasnip.nvim",
 		},
 	},
 

@@ -5,7 +5,8 @@ if not status_ok then
 end
 
 plugin.filetype_extend("javascriptreact", { "html" })
+plugin.filetype_extend("ruby", { "rails" })
 plugin.filetype_extend("html", { "javascript" })
+
 require("luasnip.loaders.from_vscode").lazy_load()
 require("luasnip.loaders.from_vscode").lazy_load({ paths = { vim.fn.stdpath("config") .. "/snippets" } })
-require("vim-react-snippets").lazy_load()

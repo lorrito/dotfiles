@@ -32,7 +32,9 @@ kanagawa.setup({
 		},
 	},
 	overrides = function(colors)
-    return {}
+		return {
+			Underlined = { underline = false },
+		}
 	end,
 	background = {
 		dark = "wave",

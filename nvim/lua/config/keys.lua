@@ -21,10 +21,6 @@ keymap("", "<S-j>", "<Nop>", opts)
 keymap("n", "n", "nzz", opts)
 keymap("n", "N", "Nzz", opts)
 
--- better softwrap moving down and up
-keymap("n", "j", "gj", opts)
-keymap("n", "k", "gk", opts)
-
 -- window navigation
 keymap("n", "<C-h>", "<C-w>h", opts)
 keymap("n", "<C-j>", "<C-w>j", opts)

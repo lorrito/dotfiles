@@ -28,7 +28,12 @@ plugins=(asdf git zsh-autosuggestions zsh-syntax-highlighting)
 source $ZSH/oh-my-zsh.sh
 
 # For all folders on the current dir, git pull their configured remote
-alias rgp="find . -maxdepth 1 -type d -exec sh -c 'echo {} && git -C {} pull' \;"
+# alias rgp="find . -maxdepth 1 -type d -exec sh -c 'echo {}: && git -C {} pull' \;"
+alias rgp="find . -maxdepth 1 -type d -exec sh -c 'if [ -d \"{}/.git\" ]; then echo {}: && git -C {} pull; fi' \;"
+
+# For all folders on the current dir, outputs their git status
+# alias rgs="find . -maxdepth 1 -type d -exec sh -c 'echo {}: && git -C {} status --short' \;"
+alias rgs="find . -maxdepth 1 -type d -exec sh -c 'if [ -d \"{}/.git\" ]; then echo {}: && git -C {} status --short; fi' \;"
 
 # For all files on the current dir, change " " to "_"
 alias rsff='for file in *; do if [ -f "$file" ]; then newname=$(echo "$file" | tr " " "_"); mv "$file" "$newname"; fi; done'

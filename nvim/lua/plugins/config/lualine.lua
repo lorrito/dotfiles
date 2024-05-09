@@ -7,7 +7,7 @@ end
 local filetype = {
 	"filetype",
 	icons_enabled = true,
-  padding = 1,
+	padding = 1,
 }
 
 plugin.setup({

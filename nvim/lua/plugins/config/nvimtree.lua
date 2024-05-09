@@ -8,11 +8,4 @@ plugin.setup({
 	git = {
 		enable = false,
 	},
-	ui = {
-		confirm = {
-			remove = false,
-			trash = false,
-			default_yes = true,
-		},
-	},
 })

@@ -14,8 +14,8 @@ require("lazy").setup({
 	-- Visualize css colors from within neovim
 	{ "norcalli/nvim-colorizer.lua" },
 
-	-- Incremental renaming
-	{ "smjonas/inc-rename.nvim", config = true },
+	-- A good renaming plugin
+	{ "nvim-pack/nvim-spectre", config = true },
 
 	-- A plugin to work with my notes
 	{ "jakewvincent/mkdnflow.nvim" },

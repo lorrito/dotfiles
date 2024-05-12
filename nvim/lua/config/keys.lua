@@ -87,10 +87,11 @@ vim.keymap.set({ "n", "x" }, "<leader>sa", function()
 	require("scissors").addNewSnippet()
 end, opts)
 
--- inc-rename configuration
-vim.keymap.set("n", "<leader>rn", function()
-	return ":IncRename " .. vim.fn.expand("<cword>")
-end, { expr = true })
+-- spectre configuration
+vim.keymap.set("n", "<leader>S", '<cmd>lua require("spectre").toggle()<CR>', opts)
+vim.keymap.set("n", "<leader>sw", '<cmd>lua require("spectre").open_visual({select_word=true})<CR>', opts)
+vim.keymap.set("v", "<leader>sw", '<esc><cmd>lua require("spectre").open_visual()<CR>', opts)
+vim.keymap.set("n", "<leader>sp", '<cmd>lua require("spectre").open_file_search({select_word=true})<CR>', opts)
 
 -- close tab and go to another buffer, if there's one.
 local status_ok_br, br = pcall(require, "mini.bufremove")

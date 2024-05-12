@@ -30,7 +30,7 @@ plugin.setup({
 			previous = "k",
 			next = "j",
 			help = "?",
-      auto_preview = false,
+			auto_preview = false,
 		},
 	},
 })

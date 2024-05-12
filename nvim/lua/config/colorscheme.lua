@@ -34,6 +34,7 @@ kanagawa.setup({
 	overrides = function(colors)
 		return {
 			Underlined = { underline = false },
+			htmlItalic = { italic = false },
 		}
 	end,
 	background = {

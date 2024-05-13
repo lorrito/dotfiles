@@ -21,7 +21,7 @@ plugin.setup({
 				return {
 					exe = "clang-format",
 					args = {
-						'--style="{ ReferenceAlignment: Pointer, PointerAlignment: Right, ReflowComments: true, KeepEmptyLinesAtTheStartOfBlocks: false, KeepEmptyLinesAtEOF: false, IndentWidth: 4, ColumnLimit: 160 }"',
+						'--style="{ ReferenceAlignment: Pointer, PointerAlignment: Right, ReflowComments: true, KeepEmptyLinesAtTheStartOfBlocks: false, KeepEmptyLinesAtEOF: false, IndentWidth: 2, ColumnLimit: 160 }"',
 						"-assume-filename",
 						util.escape_path(util.get_current_buffer_file_name()),
 					},
@@ -36,7 +36,7 @@ plugin.setup({
 				return {
 					exe = "clang-format",
 					args = {
-						'--style="{ ReferenceAlignment: Pointer, PointerAlignment: Right, ReflowComments: true, KeepEmptyLinesAtTheStartOfBlocks: false, KeepEmptyLinesAtEOF: false, IndentWidth: 4, ColumnLimit: 160 }"',
+						'--style="{ ReferenceAlignment: Pointer, PointerAlignment: Right, ReflowComments: true, KeepEmptyLinesAtTheStartOfBlocks: false, KeepEmptyLinesAtEOF: false, IndentWidth: 2, ColumnLimit: 160 }"',
 						"-assume-filename",
 						util.escape_path(util.get_current_buffer_file_name()),
 					},

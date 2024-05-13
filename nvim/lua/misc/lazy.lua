@@ -4,6 +4,7 @@ require("lazy").setup({
 
 	-- Colorscheme(s)
 	{ "rebelot/kanagawa.nvim", lazy = false, priority = 1000 },
+	{ "ellisonleao/gruvbox.nvim", lazy = false, priority = 1000 },
 
 	-- Line indentation visualization
 	{ "lukas-reineke/indent-blankline.nvim" },

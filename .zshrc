@@ -42,7 +42,7 @@ alias rsff='for file in *; do if [ -f "$file" ]; then newname=$(echo "$file" | t
 alias ls='ls --tabsize=0 --color=auto --human-readable --group-directories-first'
 
 # Recursively find all TODOs
-alias todos="rg --glob '!{.git,node_modules}' -i '\bTODO\b'"
+alias todos="rg --glob '!{.git,node_modules}' -i '\@\bTODO\b'"
 
 # Should be added on git.config
 # git config --global alias.ls "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"

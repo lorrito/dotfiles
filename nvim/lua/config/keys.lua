@@ -44,17 +44,16 @@ keymap("n", "<leader>h", ":noh<CR>", opts)
 keymap("n", "<C-s>", ":w<CR>", opts)
 
 -- move lines
+-- normal mode
+keymap("n", "<A-j>", ":m+1<CR>", opts)
+keymap("n", "<A-k>", ":m-2<CR>", opts)
+keymap("n", "<A-h>", "<<", opts)
+keymap("n", "<A-l>", ">>", opts)
 -- visual block mode
 keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 keymap("x", "<A-h>", "<gv", opts)
 keymap("x", "<A-l>", ">gv", opts)
--- indentation mode
-keymap("i", "<A-j>", "<Esc>:m+1<CR>i", opts)
-keymap("i", "<A-k>", "<Esc>:m-2<CR>i", opts)
--- normal mode
-keymap("n", "<A-j>", ":m+1<CR>", opts)
-keymap("n", "<A-k>", ":m-2<CR>", opts)
 
 -- telescope
 keymap("n", "<leader>ff", ":Telescope find_files<CR>", opts)

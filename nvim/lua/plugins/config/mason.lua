@@ -39,9 +39,8 @@ masontools.setup({
 		"html-lsp",
 
 		-- Ruby
-		"standardrb",
 		"solargraph",
-		"rubocop",
+		"standardrb",
 
 		-- Rust
 		-- rustfmt should be installed using rustup: rustup component add rustfmt

@@ -1,10 +1,4 @@
-local status_ok_luasnip, luasnip = pcall(require, "luasnip")
 local status_ok_lspconfig, lspconfig = pcall(require, "lspconfig")
-
-if not status_ok_luasnip then
-	vim.notify("plugin " .. luasnip .. " failed to start.")
-	return
-end
 
 if not status_ok_lspconfig then
 	vim.notify("plugin " .. lspconfig .. " failed to start.")

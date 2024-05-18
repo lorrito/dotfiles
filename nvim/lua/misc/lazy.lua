@@ -86,6 +86,9 @@ require("lazy").setup({
 	-- See some pretty diagnostics
 	{ "folke/trouble.nvim" },
 
+	-- Better rails development
+	{ "tpope/vim-rails" },
+
 	-- Autopairs!
 	{ "windwp/nvim-autopairs", event = "InsertEnter", config = true },
 

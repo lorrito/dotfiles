@@ -6,10 +6,26 @@ end
 
 local util = require("formatter.util")
 
-local prettier_args = {
-	"--stdin-filepath",
-	util.escape_path(util.get_current_buffer_file_path()),
-}
+local prettierd_config = function()
+	return {
+		exe = "prettierd",
+		args = { util.escape_path(util.get_current_buffer_file_path()) },
+		stdin = true,
+	}
+end
+
+local clangformat_config = function()
+	return {
+		exe = "clang-format",
+		args = {
+			'--style="{ ReferenceAlignment: Pointer, PointerAlignment: Right, ReflowComments: true, KeepEmptyLinesAtTheStartOfBlocks: false, KeepEmptyLinesAtEOF: false, IndentWidth: 2, ColumnLimit: 160 }"',
+			"-assume-filename",
+			util.escape_path(util.get_current_buffer_file_path()),
+		},
+		stdin = true,
+		try_node_modules = false,
+	}
+end
 
 plugin.setup({
 	logging = true,
@@ -17,53 +33,19 @@ plugin.setup({
 	filetype = {
 		c = {
 			require("formatter.filetypes.c").clangformat,
-			function()
-				return {
-					exe = "clang-format",
-					args = {
-						'--style="{ ReferenceAlignment: Pointer, PointerAlignment: Right, ReflowComments: true, KeepEmptyLinesAtTheStartOfBlocks: false, KeepEmptyLinesAtEOF: false, IndentWidth: 2, ColumnLimit: 160 }"',
-						"-assume-filename",
-						util.escape_path(util.get_current_buffer_file_name()),
-					},
-					stdin = true,
-					try_node_modules = false,
-				}
-			end,
+			clangformat_config,
 		},
 		cpp = {
 			require("formatter.filetypes.c").clangformat,
-			function()
-				return {
-					exe = "clang-format",
-					args = {
-						'--style="{ ReferenceAlignment: Pointer, PointerAlignment: Right, ReflowComments: true, KeepEmptyLinesAtTheStartOfBlocks: false, KeepEmptyLinesAtEOF: false, IndentWidth: 2, ColumnLimit: 160 }"',
-						"-assume-filename",
-						util.escape_path(util.get_current_buffer_file_name()),
-					},
-					stdin = true,
-					try_node_modules = false,
-				}
-			end,
+			clangformat_config,
 		},
 		html = {
-			require("formatter.filetypes.html").prettier,
-			function()
-				return {
-					exe = "prettierd",
-					args = { util.escape_path(util.get_current_buffer_file_path()) },
-					stdin = true,
-				}
-			end,
+			require("formatter.filetypes.html").prettierd,
+			prettierd_config,
 		},
 		json = {
 			require("formatter.filetypes.json").prettierd,
-			function()
-				return {
-					exe = "prettierd",
-					args = { util.escape_path(util.get_current_buffer_file_path()) },
-					stdin = true,
-				}
-			end,
+			prettierd_config,
 		},
 		lua = {
 			require("formatter.filetypes.lua").stylua,
@@ -83,36 +65,24 @@ plugin.setup({
 		},
 		javascript = {
 			require("formatter.filetypes.javascript").prettierd,
-			function()
-				return {
-					exe = "prettierd",
-					args = { util.escape_path(util.get_current_buffer_file_path()) },
-					stdin = true,
-				}
-			end,
+			prettierd_config,
 		},
 		javascriptreact = {
-			require("formatter.filetypes.javascriptreact").prettier,
-			function()
-				return {
-					exe = "prettierd",
-					args = { util.escape_path(util.get_current_buffer_file_path()) },
-					stdin = true,
-				}
-			end,
+			require("formatter.filetypes.javascriptreact").prettierd,
+			prettierd_config,
 		},
 		ruby = {
-			require("formatter.filetypes.ruby").rubocop,
+			require("formatter.filetypes.ruby").standardrb,
 			function()
 				return {
-					exe = "rubocop",
+					exe = "standardrb",
 					args = {
-						"--fix-layout",
-						"--stdin",
-						util.escape_path(util.get_current_buffer_file_name()),
+						"--fix",
 						"--format",
-						"files",
+						"quiet",
 						"--stderr",
+						"--stdin",
+						util.escape_path(util.get_current_buffer_file_path()),
 					},
 					stdin = true,
 				}

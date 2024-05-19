@@ -8,6 +8,9 @@ keymap("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
 vim.g.mapolocalleader = " "
 
+-- faster save
+keymap("n", "<C-s>", ":w<CR>", opts)
+
 -- unmapping some keys
 keymap("", "<leader>lo", "<Nop>", opts)
 keymap("", "<leader>la", "<Nop>", opts)

@@ -3,7 +3,6 @@ require("lazy").setup({
 	{ "nvim-lua/plenary.nvim" },
 
 	-- Colorscheme(s)
-	{ "rebelot/kanagawa.nvim", lazy = false, priority = 1000 },
 	{ "ellisonleao/gruvbox.nvim", lazy = false, priority = 1000 },
 
 	-- Line indentation visualization
@@ -12,16 +11,13 @@ require("lazy").setup({
 	-- Formatting code with C-f
 	{ "mhartington/formatter.nvim" },
 
-	-- Visualize css colors from within neovim
-	{ "norcalli/nvim-colorizer.lua" },
-
 	-- A good renaming plugin
 	{ "nvim-pack/nvim-spectre", config = true },
 
-	-- A plugin to work with my notes
+	-- Note working
 	{ "jakewvincent/mkdnflow.nvim" },
 
-	-- Floating terminal
+	-- Toggable terminals
 	{ "akinsho/toggleterm.nvim", config = true },
 
 	-- Telescope related plugins
@@ -52,7 +48,7 @@ require("lazy").setup({
 	{ "hrsh7th/cmp-nvim-lsp-signature-help" },
 	{ "saadparwaiz1/cmp_luasnip" },
 
-	-- Going from snippy to luasnip in order to use nvim-scissors
+	-- Snippet engine
 	{
 		"L3MON4D3/LuaSnip",
 		-- follow latest release.
@@ -89,7 +85,7 @@ require("lazy").setup({
 	-- Better rails development
 	{ "tpope/vim-rails" },
 
-	-- Autopairs!
+	-- Autopairs
 	{ "windwp/nvim-autopairs", event = "InsertEnter", config = true },
 
 	-- Comment out and uncomment

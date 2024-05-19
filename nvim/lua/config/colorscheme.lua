@@ -1,56 +1,12 @@
-local status_ok_kanagawa, kanagawa = pcall(require, "kanagawa")
 local status_ok_gruvbox, gruvbox = pcall(require, "gruvbox")
-
-if not status_ok_kanagawa then
-	vim.notify("plugin " .. kanagawa .. " failed to start.")
-	return
-end
 
 if not status_ok_gruvbox then
 	vim.notify("plugin " .. gruvbox .. " failed to start.")
 	return
 end
 
-kanagawa.setup({
-	compile = false,
-	undercurl = false,
-	commentStyle = { italic = false },
-	functionStyle = {},
-	keywordStyle = { italic = false },
-	statementStyle = { bold = true },
-	typeStyle = {},
-	transparent = false,
-	dimInactive = false,
-	terminalColors = true,
-	colors = {
-		palette = {},
-		theme = {
-			wave = {},
-			lotus = {},
-			dragon = {},
-			all = {
-				ui = {
-					float = {
-						bg = "none",
-					},
-				},
-			},
-		},
-	},
-	overrides = function(colors)
-		return {
-			Underlined = { underline = false },
-			htmlItalic = { italic = false },
-		}
-	end,
-	background = {
-		dark = "wave",
-		light = "lotus",
-	},
-})
-
 gruvbox.setup({
-	terminal_colors = true, -- add neovim terminal colors
+	terminal_colors = true,
 	undercurl = false,
 	underline = false,
 	bold = false,

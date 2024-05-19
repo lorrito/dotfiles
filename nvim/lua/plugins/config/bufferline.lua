@@ -10,15 +10,12 @@ plugin.setup({
 			if vim.bo[buf_number].filetype ~= "NvimTree" or vim.bo[buf_number].filetype ~= "alpha" then
 				return true
 			end
-			if vim.fn.bufname(buf_number) ~= "[No Name]" then
-				return true
-			end
 		end,
 		offsets = {
 			{
 				filetype = "NvimTree",
 				text = "File explorer",
-				separator = true,
+				separator = false,
 			},
 		},
 		always_show_bufferline = false,

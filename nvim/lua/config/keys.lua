@@ -1,4 +1,4 @@
--- creating lists in order to have shorter options
+-- shorter default options
 local opts = { noremap = true, silent = true }
 -- shorter function name
 local keymap = vim.api.nvim_set_keymap
@@ -40,9 +40,6 @@ keymap("n", "<S-Right>", ":vertical resize +2<CR>", opts)
 -- clear highlights
 keymap("n", "<leader>h", ":noh<CR>", opts)
 
--- save file
-keymap("n", "<C-s>", ":w<CR>", opts)
-
 -- move lines
 -- normal mode
 keymap("n", "<A-j>", ":m+1<CR>", opts)
@@ -81,7 +78,7 @@ keymap("n", "$", "$l", opts)
 vim.keymap.set("n", "<leader>se", function()
 	require("scissors").editSnippet()
 end, opts)
--- When used in visual mode prefills the selection as body
+-- when used in visual mode prefills the selection as body
 vim.keymap.set({ "n", "x" }, "<leader>sa", function()
 	require("scissors").addNewSnippet()
 end, opts)

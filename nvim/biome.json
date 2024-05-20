@@ -1,0 +1,15 @@
+{
+	"organizeImports": { "enabled": true },
+	"formatter": {
+		"enabled": false
+	},
+	"linter": {
+		"enabled": true,
+		"rules": {
+			"all": true,
+			"style": {
+				"all": false
+			}
+		}
+	}
+}

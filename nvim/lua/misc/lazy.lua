@@ -39,12 +39,12 @@ require("lazy").setup({
 	-- Vertical tree file explorer
 	{ "nvim-tree/nvim-tree.lua" },
 
-	-- Completion related
-	{ "hrsh7th/nvim-cmp", lazy = false },
-	{ "hrsh7th/cmp-nvim-lsp" },
+	-- Nvim-cmp related
+	{ "hrsh7th/nvim-cmp" },
 	{ "hrsh7th/cmp-buffer" },
 	{ "hrsh7th/cmp-path" },
 	{ "hrsh7th/cmp-cmdline" },
+	{ "hrsh7th/cmp-nvim-lsp" },
 	{ "hrsh7th/cmp-nvim-lsp-signature-help" },
 	{ "saadparwaiz1/cmp_luasnip" },
 
@@ -68,12 +68,11 @@ require("lazy").setup({
 	-- Close buffers
 	{ "echasnovski/mini.nvim", version = false },
 
-	-- Configuration plugin for neovim's lsp
+	-- Plugins for neovim's lsp
 	{ "neovim/nvim-lspconfig", event = { "BufReadPre", "BufNewFile" } },
 
 	-- Easier management of external packages, like LSP, DAP, formatters, etc.
 	{ "williamboman/mason.nvim" },
-	{ "williamboman/mason-lspconfig.nvim" },
 	{ "WhoIsSethDaniel/mason-tool-installer.nvim" },
 
 	-- Live actions previews

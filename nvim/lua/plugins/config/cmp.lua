@@ -1,7 +1,7 @@
 local status_ok_cmp, cmp = pcall(require, "cmp")
 local status_ok_luasnip, luasnip = pcall(require, "luasnip")
 
-if not status_ok_luasnip then
+if not status_ok_luasnip and status_ok_cmp then
 	vim.notify("plugin " .. luasnip .. " failed to start.")
 	return
 end
@@ -72,7 +72,6 @@ cmp.setup({
 		["<C-Space>"] = cmp.mapping.complete(),
 		["<C-e>"] = cmp.mapping.abort(),
 		["<CR>"] = cmp.mapping.confirm({ select = false }),
-
 		-- Luasnip super-tab configuration:
 		["<Tab>"] = cmp.mapping(function(fallback)
 			if cmp.visible() then
@@ -85,7 +84,6 @@ cmp.setup({
 				fallback()
 			end
 		end, { "i", "s" }),
-
 		["<S-Tab>"] = cmp.mapping(function(fallback)
 			if cmp.visible() then
 				cmp.select_prev_item()
@@ -95,12 +93,10 @@ cmp.setup({
 				fallback()
 			end
 		end, { "i", "s" }),
-
 		["<Down>"] = cmp.mapping(function(fallback)
 			cmp.close()
 			fallback()
 		end, { "i" }),
-
 		["<Up>"] = cmp.mapping(function(fallback)
 			cmp.close()
 			fallback()
@@ -108,6 +104,7 @@ cmp.setup({
 	}),
 	sources = cmp.config.sources({
 		{ name = "nvim_lsp" },
+		{ name = "nvim_lua" },
 		{ name = "luasnip" },
 		{ name = "nvim_lsp_signature_help" },
 	}),

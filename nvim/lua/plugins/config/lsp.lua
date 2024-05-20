@@ -8,6 +8,26 @@ end
 -- rounded border on :LspInfo
 require("lspconfig.ui.windows").default_options.border = "rounded"
 
+local on_attach = function(_, bufnr)
+	local function buf_set_keymap(...)
+		vim.api.nvim_buf_set_keymap(bufnr, ...)
+	end
+	local function buf_set_option(...)
+		vim.api.nvim_buf_set_option(bufnr, ...)
+	end
+
+	buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
+
+	local opts = { noremap = true, silent = true }
+	buf_set_keymap("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
+	buf_set_keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
+	buf_set_keymap("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
+	buf_set_keymap("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
+	buf_set_keymap("n", "gK", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
+	buf_set_keymap("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
+	buf_set_keymap("n", "<leader>D", "<cmd>lua vim.lsp.buf.type_definition()<CR>", opts)
+	buf_set_keymap("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
+end
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 
@@ -21,22 +41,9 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagn
 	},
 })
 
-lspconfig.solargraph.setup({
-	capabilities = capabilities,
-	init_options = {
-		formatting = false,
-	},
-})
-
-lspconfig.tsserver.setup({
-	capabilities = capabilities,
-	completions = {
-		completeFunctionCalls = true,
-	},
-})
-
 lspconfig.lua_ls.setup({
 	capabilities = capabilities,
+	on_attach = on_attach,
 	on_init = function(client)
 		client.config.settings.Lua = vim.tbl_deep_extend("force", client.config.settings.Lua, {
 			runtime = {
@@ -53,22 +60,39 @@ lspconfig.lua_ls.setup({
 	settings = {
 		Lua = {
 			diagnostics = {
-				-- Get the language server to recognize the `vim` global
+				-- get the language server to recognize the `vim` global
 				globals = { "vim" },
 			},
 		},
 	},
 })
 
-lspconfig.rust_analyzer.setup({})
+lspconfig.solargraph.setup({
+	capabilities = capabilities,
+	init_options = {
+		formatting = false,
+	},
+})
+
+lspconfig.biome.setup({
+	single_file_support = true,
+	cmd = {
+		"biome",
+		"lsp-proxy",
+	},
+	capabilities = capabilities,
+	on_attach = on_attach,
+})
 
 local servers = {
 	"clangd",
 	"html",
+	"rust_analyzer",
 }
 
 for _, lsp in ipairs(servers) do
 	lspconfig[lsp].setup({
+		on_attach = on_attach,
 		capabilities = capabilities,
 	})
 end

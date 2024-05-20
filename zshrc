@@ -1,5 +1,6 @@
 export PATH=$PATH:$HOME/.cargo/bin:$HOME/.local/bin
 export ZSH="$HOME/.oh-my-zsh"
+export BIOME_CONFIG_PATH="$HOME/.config/nvim/biome.json"
 
 # This checks for nvim and adds it as manpager
 if [[ -x $(command -v nvim) ]]; then

@@ -37,7 +37,7 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagn
 		severity_limit = "Warning",
 	},
 	virtual_text = {
-		severity_limit = "Error",
+		severity_limit = "Warning",
 	},
 })
 
@@ -74,20 +74,12 @@ lspconfig.solargraph.setup({
 	},
 })
 
-lspconfig.biome.setup({
-	single_file_support = true,
-	cmd = {
-		"biome",
-		"lsp-proxy",
-	},
-	capabilities = capabilities,
-	on_attach = on_attach,
-})
-
 local servers = {
 	"clangd",
 	"html",
 	"rust_analyzer",
+	"quick_lint_js",
+	"tsserver",
 }
 
 for _, lsp in ipairs(servers) do

@@ -28,9 +28,9 @@ masontools.setup({
 		"stylua", -- formatter
 
 		-- Javascript
-		-- "prettierd", -- formatter
-		-- "eslint", -- lsp (lint)
-		"biome", -- formatter & LSP
+		"biome", -- formatter
+		"quick-lint-js", -- lint
+		"typescript-language-server", -- lsp
 
 		-- HTML
 		"html-lsp", -- lsp

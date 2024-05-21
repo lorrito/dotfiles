@@ -28,16 +28,18 @@ local on_attach = function(_, bufnr)
 	buf_set_keymap("n", "<leader>D", "<cmd>lua vim.lsp.buf.type_definition()<CR>", opts)
 	buf_set_keymap("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
 end
+
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
 	underline = false,
 	signs = {
-		severity_limit = "Warning",
+		severity = vim.diagnostic.severity.WARN,
 	},
 	virtual_text = {
-		severity_limit = "Warning",
+		spacing = 4,
+		severity = vim.diagnostic.severity.WARN,
 	},
 })
 

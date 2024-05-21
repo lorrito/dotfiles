@@ -63,7 +63,7 @@ require("lazy").setup({
 	{ "chrisgrieser/nvim-scissors" },
 
 	-- Buffers on top
-	{ "akinsho/bufferline.nvim" },
+	{ "willothy/nvim-cokeline" },
 
 	-- Close buffers
 	{ "echasnovski/mini.nvim", version = false },
@@ -85,7 +85,11 @@ require("lazy").setup({
 	{ "tpope/vim-rails" },
 
 	-- Autopairs
-	{ "windwp/nvim-autopairs", event = "InsertEnter", config = true },
+	{
+		"windwp/nvim-autopairs",
+		event = "InsertEnter",
+		config = true,
+	},
 
 	-- Comment out and uncomment
 	{ "numToStr/Comment.nvim" },

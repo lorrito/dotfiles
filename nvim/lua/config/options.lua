@@ -6,6 +6,8 @@ vim.g.loaded_netrwPlugin = 1
 vim.opt.path:append("**")
 -- disables backup
 vim.opt.backup = false
+-- don't abandon buffers
+vim.opt.hidden = true
 -- makes so `` appears on markdown files
 vim.opt.conceallevel = 0
 -- treats the tab completiom menu
@@ -14,6 +16,8 @@ vim.opt.completeopt = { "menuone", "noselect" }
 vim.opt.fileencoding = "utf-8"
 -- highlights matches on search pattern
 vim.opt.hlsearch = true
+-- disables moving while searching
+vim.opt.incsearch = false
 -- disables the mouse everywhere
 vim.opt.mouse = "a"
 -- disables the mode showing at the status bar

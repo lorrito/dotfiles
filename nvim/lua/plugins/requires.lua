@@ -1,8 +1,8 @@
 local config = "plugins.config."
 
 require(config .. "actions")
-require(config .. "bufferline")
 require(config .. "cmp")
+require(config .. "cokeline")
 require(config .. "comment")
 require(config .. "formatter")
 require(config .. "ibl")

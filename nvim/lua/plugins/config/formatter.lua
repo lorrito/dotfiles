@@ -31,6 +31,14 @@ local clangformat_config = function()
 	}
 end
 
+local prettierd_config = function()
+	return {
+		exe = "prettierd",
+		args = { util.escape_path(util.get_current_buffer_file_path()) },
+		stdin = true,
+	}
+end
+
 plugin.setup({
 	logging = true,
 	log_level = vim.log.levels.WARN,
@@ -44,12 +52,12 @@ plugin.setup({
 			clangformat_config,
 		},
 		html = {
-			require("formatter.filetypes.html").biome,
-			biome_config,
+			require("formatter.filetypes.html").prettierd,
+			prettierd_config,
 		},
 		json = {
-			require("formatter.filetypes.json").biome,
-			biome_config,
+			require("formatter.filetypes.json").prettierd,
+			prettierd_config,
 		},
 		lua = {
 			require("formatter.filetypes.lua").stylua,
@@ -68,12 +76,12 @@ plugin.setup({
 			end,
 		},
 		javascript = {
-			require("formatter.filetypes.javascript").biome,
-			biome_config,
+			require("formatter.filetypes.javascript").prettierd,
+			prettierd_config,
 		},
 		javascriptreact = {
-			require("formatter.filetypes.javascriptreact").biome,
-			biome_config,
+			require("formatter.filetypes.javascriptreact").prettierd,
+			prettierd_config,
 		},
 		ruby = {
 			require("formatter.filetypes.ruby").standardrb,

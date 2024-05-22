@@ -32,9 +32,11 @@ plugin.setup({
 	},
 	default_hl = {
 		fg = function(buffer)
-			return buffer.is_focused and get_hex("Normal", "fg") or get_hex("Comment", "fg")
+			return buffer.is_focused and get_hex("ColorColumn", "bg") or get_hex("Normal", "fg")
 		end,
-		bg = "NONE",
+		bg = function(buffer)
+			return buffer.is_focused and get_hex("Normal", "fg") or "#282828"
+		end,
 		p = nil,
 		bold = nil,
 		italic = nil,
@@ -42,7 +44,6 @@ plugin.setup({
 		undercurl = nil,
 		strikethrough = nil,
 	},
-	fill_hl = "TabLineFill",
 	components = {
 		{
 			text = function(buffer)
@@ -69,7 +70,6 @@ plugin.setup({
 			text = " ",
 		},
 	},
-	rhs = {},
 	tabs = {
 		placement = "right",
 		components = {},

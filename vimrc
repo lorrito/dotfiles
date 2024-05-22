@@ -43,7 +43,7 @@ set complete=.,w,b,u,t
 set modelines=0
 set nomodeline
 syntax on
-colorscheme desert
+colorscheme slate
 nnoremap $ $l
 
 " stuff to ignore when tab completing

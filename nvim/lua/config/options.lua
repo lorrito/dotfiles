@@ -2,8 +2,6 @@
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
--- adds directories recursively to :find
-vim.opt.path:append("**")
 -- disables backup
 vim.opt.backup = false
 -- don't abandon buffers

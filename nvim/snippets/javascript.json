@@ -1,0 +1,1 @@
+{"svgrckill":{"body":["function gracefulShutdown(event) {","  return (code) => {","    console.log(`${event} received, shutting down gracefully...`);","    server.close(() => {","      process.exit(code);","    });","  };","}","","process.on(\"SIGINT\", gracefulShutdown(\"SIGINT\"));","process.on(\"SIGTERM\", gracefulShutdown(\"SIGTERM\"));"],"prefix":"svgrckill"}}

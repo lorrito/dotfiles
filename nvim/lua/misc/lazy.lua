@@ -65,7 +65,7 @@ require("lazy").setup({
 	-- Buffers on top
 	{ "willothy/nvim-cokeline" },
 
-	-- Close buffers
+	-- Modular mini plugins
 	{ "echasnovski/mini.nvim", version = false },
 
 	-- Plugins for neovim's lsp

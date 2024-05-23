@@ -6,18 +6,6 @@ end
 
 local util = require("formatter.util")
 
-local biome_config = function()
-	return {
-		exe = "biome",
-		args = {
-			"format",
-			"--stdin-file-path",
-			util.escape_path(util.get_current_buffer_file_path()),
-		},
-		stdin = true,
-	}
-end
-
 local clangformat_config = function()
 	return {
 		exe = "clang-format",

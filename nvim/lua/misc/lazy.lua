@@ -59,9 +59,6 @@ require("lazy").setup({
 		},
 	},
 
-	-- Create snippets from selection
-	{ "chrisgrieser/nvim-scissors" },
-
 	-- Buffers on top
 	{ "willothy/nvim-cokeline" },
 

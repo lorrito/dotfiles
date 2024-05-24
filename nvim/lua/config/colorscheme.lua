@@ -1,5 +1,4 @@
 local status_ok_gruvbox, gruvbox = pcall(require, "gruvbox")
-
 if not status_ok_gruvbox then
 	vim.notify("plugin " .. gruvbox .. " failed to start.")
 	return
@@ -30,11 +29,4 @@ gruvbox.setup({
 	transparent_mode = false,
 })
 
-local colorscheme = "gruvbox"
----@diagnostic disable-next-line: param-type-mismatch
-local status_ok_colorscheme, _ = pcall(vim.cmd, "colorscheme " .. colorscheme)
-
-if not status_ok_colorscheme then
-	vim.notify("colorscheme not found.")
-	vim.cmd("colorscheme slate")
-end
+vim.cmd("colorscheme gruvbox")

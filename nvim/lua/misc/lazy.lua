@@ -60,7 +60,7 @@ require("lazy").setup({
 	},
 
 	-- Buffers on top
-	{ "willothy/nvim-cokeline" },
+	{ "akinsho/bufferline.nvim", version = "*", lazy = "VeryLazy", priority = 999 },
 
 	-- Modular mini plugins
 	{ "echasnovski/mini.nvim", version = false },

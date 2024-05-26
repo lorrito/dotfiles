@@ -1,6 +1,6 @@
 export PATH=$PATH:$HOME/.cargo/bin:$HOME/.local/bin
 export ZSH="$HOME/.oh-my-zsh"
-export BIOME_CONFIG_PATH="$HOME/.config/nvim/biome.json"
+export PSQL_EDITOR="$(which vim)"
 
 # This checks for nvim and adds it as manpager
 if [[ -x $(command -v nvim) ]]; then
@@ -18,13 +18,13 @@ fi
 
 ZSH_THEME="gentoo"
 
+plugins=(asdf git zsh-autosuggestions zsh-syntax-highlighting)
+
 autoload -Uz compinit
 for dump in ~/.zcompdump(N.mh+24); do
   compinit
 done
 compinit -C
-
-plugins=(asdf git zsh-autosuggestions zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -42,6 +42,8 @@ alias ls='ls --tabsize=0 --color=auto --human-readable --group-directories-first
 
 # Recursively find all TODOs
 alias todos="rg --glob '!{.git,node_modules}' -i '\@\bTODO\b'"
+
+alias irb="irb --simple-prompt"
 
 # Should be added on git.config
 # git config --global alias.ls "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"

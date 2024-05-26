@@ -3,7 +3,7 @@ require("lazy").setup({
 	{ "nvim-lua/plenary.nvim" },
 
 	-- Colorscheme(s)
-	{ "ellisonleao/gruvbox.nvim", lazy = false, priority = 1000 },
+	{ "chriskempson/base16-vim", lazy = false, priority = 1000 },
 
 	-- Line indentation visualization
 	{ "lukas-reineke/indent-blankline.nvim" },
@@ -60,7 +60,7 @@ require("lazy").setup({
 	},
 
 	-- Buffers on top
-	{ "akinsho/bufferline.nvim", version = "*", lazy = "VeryLazy", priority = 999 },
+	{ "akinsho/bufferline.nvim", version = "*", lazy = "VeryLazy" },
 
 	-- Modular mini plugins
 	{ "echasnovski/mini.nvim", version = false },

@@ -10,7 +10,7 @@ local clangformat_config = function()
 	return {
 		exe = "clang-format",
 		args = {
-			'--style="{ ReferenceAlignment: Pointer, PointerAlignment: Right, ReflowComments: true, KeepEmptyLinesAtTheStartOfBlocks: false, KeepEmptyLinesAtEOF: false, IndentWidth: 2, ColumnLimit: 160 }"',
+			'--style="{ AllowShortFunctionsOnASingleLine: None, AlignEscapedNewlines: Left, SpaceAfterLogicalNot: false, SpaceAfterTemplateKeyword: false, SpaceAfterCStyleCast: false, ReferenceAlignment: Pointer, PointerAlignment: Right, ReflowComments: false, KeepEmptyLinesAtTheStartOfBlocks: false, KeepEmptyLinesAtEOF: false, IndentWidth: 2, ColumnLimit: 80 }"',
 			"-assume-filename",
 			util.escape_path(util.get_current_buffer_file_path()),
 		},

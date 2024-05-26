@@ -1,5 +1,7 @@
 local config = "plugins.config."
 
+require(config .. "colorscheme")
+
 require(config .. "actions")
 require(config .. "bufferline")
 require(config .. "cmp")

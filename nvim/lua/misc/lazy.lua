@@ -78,15 +78,12 @@ require("lazy").setup({
 	-- See some pretty diagnostics
 	{ "folke/trouble.nvim" },
 
-	-- Better rails development
+	-- Better ruby/rails development
+	{ "tpope/vim-endwise" }, -- Auto add end keyword
 	{ "tpope/vim-rails" },
 
 	-- Autopairs
-	{
-		"windwp/nvim-autopairs",
-		event = "InsertEnter",
-		config = true,
-	},
+	{ "windwp/nvim-autopairs", event = "InsertEnter", config = true },
 
 	-- Comment out and uncomment
 	{ "numToStr/Comment.nvim" },

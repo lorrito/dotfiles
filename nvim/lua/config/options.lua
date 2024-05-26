@@ -61,5 +61,3 @@ vim.opt.virtualedit = "onemore"
 vim.opt.laststatus = 0
 -- disable intro message
 vim.opt.shortmess:append("I")
-
-vim.cmd("colorscheme base16-gruvbox-dark-medium")

@@ -10,9 +10,10 @@ plugin.setup({
 		enable = false,
 	},
 	renderer = {
+		indent_width = 1,
 		indent_markers = {
 			enable = true,
-			inline_arrows = true,
+			inline_arrows = false,
 		},
 		icons = {
 			web_devicons = {

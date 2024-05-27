@@ -5,12 +5,12 @@ if not status_ok then
 end
 
 plugin.setup({
+	backend = { "telescope" },
 	diff = {
 		algorithm = "patience",
 		ignore_whitespace = true,
 		ctxlen = 3,
 	},
-	backend = { "telescope" },
 	telescope = {
 		sorting_strategy = "ascending",
 		layout_strategy = "vertical",

@@ -2,11 +2,6 @@ export PATH=$PATH:$HOME/.cargo/bin:$HOME/.local/bin
 export ZSH="$HOME/.oh-my-zsh"
 export PSQL_EDITOR="$(which vim)"
 
-# This checks for nvim and adds it as manpager
-if [[ -x $(command -v nvim) ]]; then
-  export MANPAGER='nvim +Man!'
-fi
-
 # This makes opening the windows system default browser from within WSL easier.
 # made following wslutilities instructions
 # [wslutilities]

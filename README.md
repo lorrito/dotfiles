@@ -2,7 +2,7 @@
 > things to run have $ at left
 
 1. $ sudo pacman -Syyuu (assuming keyring correct configuration)
-2. $ sudo pacman -S base-devel zsh git openssh glibc libffi libyaml openssl zlib fzf unzip tar zip python python-pipx postgresql sqlite cmake ninja rustup vim wget curl man-db less tree man-pages
+2. $ sudo pacman -S ripgrep fd base-devel zsh git openssh glibc libffi libyaml openssl zlib fzf unzip tar zip python python-pipx postgresql sqlite cmake ninja rustup vim wget curl man-db less tree man-pages
 3. $ rustup default stable (to install the stable toolchain and default it)
 4. generate ssh keys:
     - $ ssh-keygen -o -a 100 -t ed25519 -f ~/.ssh/id_ed25519 -C "\<your-email\>"

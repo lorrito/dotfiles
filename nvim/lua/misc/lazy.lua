@@ -79,6 +79,9 @@ require("lazy").setup({
 	{ "tpope/vim-endwise" }, -- Auto add end keyword
 	{ "tpope/vim-rails" },
 
+	-- Dim inactive windows
+	{ "levouh/tint.nvim" },
+
 	-- Autopairs
 	{ "windwp/nvim-autopairs", event = "InsertEnter", config = true },
 

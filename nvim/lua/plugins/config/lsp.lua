@@ -13,6 +13,7 @@ local on_attach = function(_, bufnr)
 		vim.api.nvim_buf_set_keymap(bufnr, ...)
 	end
 	local function buf_set_option(...)
+		---@diagnostic disable-next-line: deprecated
 		vim.api.nvim_buf_set_option(bufnr, ...)
 	end
 

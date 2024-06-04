@@ -23,21 +23,25 @@ compinit -C
 
 source $ZSH/oh-my-zsh.sh
 
-# For all folders on the current dir, git pull their configured remote
+# for all files in first given extension on cwd, convert them to the second given extension using imagemagick
+alias cvt='f() { if [ "$#" -ne 2 ]; then echo "usage: cvt <extension> <extension>"; return 1; fi; for file in *.$1; do magick "$file" "${file%.$1}.$2"; done }; f'
+
+# for all folders on the current dir, git pull their configured remote
 alias rgp="find . -maxdepth 1 -type d -exec sh -c 'if [ -d \"{}/.git\" ]; then echo {}: && git -C {} pull; fi' \;"
 
-# For all folders on the current dir, outputs their git status
+# for all folders on the current dir, outputs their git status
 alias rgs="find . -maxdepth 1 -type d -exec sh -c 'if [ -d \"{}/.git\" ]; then echo {}: && git -C {} status --short; fi' \;"
 
-# For all files on the current dir, change " " to "_"
+# for all files on the current dir, change " " to "_"
 alias rsff='for file in *; do if [ -f "$file" ]; then newname=$(echo "$file" | tr " " "_"); mv "$file" "$newname"; fi; done'
 
-# Better default ls
+# better default ls
 alias ls='ls --tabsize=0 --color=auto --human-readable --group-directories-first'
 
-# Recursively find all TODOs
+# recursively find all todos
 alias todos="rg --glob '!{.git,node_modules}' -i '\@\bTODO\b'"
 
+# default irb to simple-prompt
 alias irb="irb --simple-prompt"
 
 # Should be added on git.config

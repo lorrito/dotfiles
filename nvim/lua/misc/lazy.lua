@@ -5,9 +5,6 @@ require("lazy").setup({
 	-- Colorscheme(s)
 	{ "chriskempson/base16-vim", lazy = false, priority = 1000 },
 
-	-- Line indentation visualization
-	{ "lukas-reineke/indent-blankline.nvim" },
-
 	-- Formatting code with C-f
 	{ "mhartington/formatter.nvim" },
 

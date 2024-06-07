@@ -24,6 +24,11 @@ keymap("", "<S-j>", "<Nop>", opts)
 keymap("n", "n", "nzz", opts)
 keymap("n", "N", "Nzz", opts)
 
+-- how to move windows around
+-- <C-w><shift-direction>
+-- as example: <C-w>L
+-- moves the current focused window to the right
+
 -- window navigation
 keymap("n", "<C-h>", "<C-w>h", opts)
 keymap("n", "<C-j>", "<C-w>j", opts)
@@ -76,6 +81,10 @@ keymap("n", "<C-f>", ":Format<CR>", opts)
 
 -- makes so $ goes one more after the last character
 keymap("n", "$", "$l", opts)
+
+-- open man pages on new windows
+keymap("n", "<C-m>l", ':execute "vertical Man " . input("section number: ") . " " . input("page name: ")<CR>', opts)
+keymap("n", "<C-m>j", ':execute "horizontal Man " . input("section number: ") . " " . input("page name: ")<CR>', opts)
 
 -- scissors snippets keymaps
 vim.keymap.set("n", "<leader>se", function()

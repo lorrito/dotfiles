@@ -68,11 +68,6 @@ keymap("n", "<leader>fr", ":Telescope oldfiles<CR>", opts)
 -- nvimtree
 keymap("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
 
--- trouble
-vim.keymap.set("n", "<leader>xx", function()
-	require("trouble").toggle()
-end, opts)
-
 -- actions preview
 vim.keymap.set({ "v", "n" }, "<leader>ca", require("actions-preview").code_actions, opts)
 
@@ -85,6 +80,9 @@ keymap("n", "$", "$l", opts)
 -- open man pages on new windows
 keymap("n", "<C-m>l", ':execute "vsp | wincmd l | hide Man " . input("section number: ") . " " . input("page name: ")<CR>', opts)
 keymap("n", "<C-m>j", ':execute "sp | wincmd j | hide Man " . input("section number: ") . " " . input("page name: ")<CR>', opts)
+
+-- trouble configuration
+keymap("n", "<leader>xx", ":Trouble diagnostics toggle<CR>", opts)
 
 -- scissors snippets keymaps
 vim.keymap.set("n", "<leader>se", function()

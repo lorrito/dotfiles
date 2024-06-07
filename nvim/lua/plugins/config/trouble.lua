@@ -20,7 +20,7 @@ plugin.setup({
 		use_diagnostic_signs = false,
 		mode = "document_diagnostics",
 		cycle_results = false,
-		action_keys = {
+		keys = {
 			cancel = "q",
 			refresh = "r",
 			jump = { "<cr>", "<tab>", "<2-leftmouse>" },

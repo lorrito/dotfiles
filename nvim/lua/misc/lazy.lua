@@ -83,7 +83,11 @@ require("lazy").setup({
 	{ "levouh/tint.nvim" },
 
 	-- Autopairs
-	{ "windwp/nvim-autopairs", event = "InsertEnter", config = true },
+	{
+		"windwp/nvim-autopairs",
+		event = "InsertEnter",
+		opts = { disable_filetype = { "TelescopePrompt", "spectre_panel", "markdown" } },
+	},
 
 	-- Comment out and uncomment
 	{ "numToStr/Comment.nvim" },

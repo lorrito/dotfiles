@@ -1,5 +1,5 @@
 ### basic setup
-> things to run have $ at left
+> commands to run are prefixed with $
 
 1. $ sudo pacman -Syyuu (assuming keyring correct configuration)
 2. $ sudo pacman -S ripgrep fd base-devel zsh git openssh glibc libffi libyaml openssl zlib fzf unzip tar zip python python-pipx postgresql sqlite cmake ninja rustup vim wget curl man-db less tree man-pages

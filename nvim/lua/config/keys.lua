@@ -83,8 +83,8 @@ keymap("n", "<C-f>", ":Format<CR>", opts)
 keymap("n", "$", "$l", opts)
 
 -- open man pages on new windows
-keymap("n", "<C-m>l", ':execute "vertical Man " . input("section number: ") . " " . input("page name: ")<CR>', opts)
-keymap("n", "<C-m>j", ':execute "horizontal Man " . input("section number: ") . " " . input("page name: ")<CR>', opts)
+keymap("n", "<C-m>l", ':execute "vsp | wincmd l | hide Man " . input("section number: ") . " " . input("page name: ")<CR>', opts)
+keymap("n", "<C-m>j", ':execute "sp | wincmd j | hide Man " . input("section number: ") . " " . input("page name: ")<CR>', opts)
 
 -- scissors snippets keymaps
 vim.keymap.set("n", "<leader>se", function()

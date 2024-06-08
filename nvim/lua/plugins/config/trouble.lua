@@ -5,32 +5,34 @@ if not status_ok then
 end
 
 plugin.setup({
-	opts = {
-		position = "bottom",
-		icons = true,
-		include_declaration = { "lsp_references", "lsp_implementations", "lsp_definitions" },
-		signs = {
-			error = "",
-			warning = "",
-			hint = "",
-			information = "",
-			other = "",
+	warn_no_results = false,
+	open_no_results = true,
+	follow = false,
+	focus = true,
+	indent_guides = true,
+	max_items = 200,
+	multiline = true,
+	preview = {
+		type = "main",
+		scratch = true,
+	},
+	icons = {
+		indent = {
+			middle = " ",
+			last = " ",
+			top = " ",
+			ws = "│  ",
 		},
-		severity = nil,
-		use_diagnostic_signs = false,
-		mode = "document_diagnostics",
-		cycle_results = false,
-		keys = {
-			cancel = "q",
-			refresh = "r",
-			jump = { "<cr>", "<tab>", "<2-leftmouse>" },
-			jump_close = { "o" },
-			toggle_mode = "m",
-			switch_severity = "s",
-			previous = "k",
-			next = "j",
-			help = "?",
-			auto_preview = false,
+	},
+	modes = {
+		diagnostics = {
+			groups = {
+				{ "filename", format = "{file_icon} {basename:Title} {count}" },
+			},
+		},
+		diagnostics_buffer = {
+			mode = "diagnostics",
+			filter = { buf = 0 },
 		},
 	},
 })

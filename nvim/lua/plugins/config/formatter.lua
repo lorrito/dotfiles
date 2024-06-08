@@ -6,7 +6,7 @@ end
 
 local util = require("formatter.util")
 
-local clangformat_config = function()
+local clangformat_config_c = function()
 	return {
 		exe = "clang-format",
 		args = {
@@ -33,11 +33,11 @@ plugin.setup({
 	filetype = {
 		c = {
 			require("formatter.filetypes.c").clangformat,
-			clangformat_config,
+			clangformat_config_c,
 		},
 		cpp = {
 			require("formatter.filetypes.c").clangformat,
-			clangformat_config,
+			clangformat_config_c,
 		},
 		html = {
 			require("formatter.filetypes.html").prettierd,
@@ -59,6 +59,16 @@ plugin.setup({
 						"--",
 						"-",
 					},
+					stdin = true,
+				}
+			end,
+		},
+		java = {
+			require("formatter.filetypes.java").clangformat,
+			function()
+				return {
+					exe = "clang-format",
+					args = { "--style=Google", "--assume-filename=.java" },
 					stdin = true,
 				}
 			end,

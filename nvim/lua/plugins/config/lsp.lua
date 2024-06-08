@@ -96,6 +96,7 @@ local servers = {
 	"html",
 	"rust_analyzer",
 	"tsserver",
+	"jdtls",
 }
 
 for _, lsp in ipairs(servers) do

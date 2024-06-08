@@ -27,6 +27,10 @@ masontools.setup({
 		"lua-language-server", -- lsp
 		"stylua", -- formatter
 
+    -- Java
+    "checkstyle", -- formatter
+    "jdtls", -- lsp
+
 		-- Javascript
 		"prettierd", -- formatter
 		"quick-lint-js", -- lint

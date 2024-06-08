@@ -77,6 +77,7 @@ keymap("n", "<C-f>", ":Format<CR>", opts)
 -- makes so $ goes one more after the last character
 keymap("n", "$", "$l", opts)
 
+-- stylua: ignore start
 -- open man pages on new windows
 keymap("n", "<C-m>l", ':execute "vsp | wincmd l | hide Man " . input("section number: ") . " " . input("page name: ")<CR>', opts)
 keymap("n", "<C-m>j", ':execute "sp | wincmd j | hide Man " . input("section number: ") . " " . input("page name: ")<CR>', opts)
@@ -89,6 +90,10 @@ vim.keymap.set("n", "<leader>S", '<cmd>lua require("spectre").toggle()<CR>', opt
 vim.keymap.set("n", "<leader>sw", '<cmd>lua require("spectre").open_visual({select_word=true})<CR>', opts)
 vim.keymap.set("v", "<leader>sw", '<esc><cmd>lua require("spectre").open_visual()<CR>', opts)
 vim.keymap.set("n", "<leader>sp", '<cmd>lua require("spectre").open_file_search({select_word=true})<CR>', opts)
+
+-- scissors configuration
+vim.keymap.set("n", "<leader>se", function() require("scissors").editSnippet() end)
+vim.keymap.set({ "n", "x" }, "<leader>sa", function() require("scissors").addNewSnippet() end)
 
 -- close tab and go to another buffer, if there's one.
 local status_ok_br, br = pcall(require, "mini.bufremove")
@@ -110,3 +115,4 @@ vim.keymap.set("n", "<C-x>", function()
 		br.delete(0)
 	end
 end, opts)
+-- stylua: ignore end

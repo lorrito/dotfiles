@@ -1,0 +1,1 @@
+{"c":{"body":["*.d","*.o","*.ko","*.obj","*.dll","*.lib","*.so","*.so.*","*.elf","*.exe","*.out","*.app","*.i*86","*.x86_64","*.su",".tmp_versions\/","Mkfile.old","dkms.conf"],"prefix":"c"}}

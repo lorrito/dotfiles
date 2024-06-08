@@ -12,7 +12,7 @@ local filetype = {
 
 plugin.setup({
 	options = {
-		theme = "gruvbox",
+		theme = "kanagawa",
 		refresh = {
 			statusline = 1000,
 			tabline = 1000,

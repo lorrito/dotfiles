@@ -4,4 +4,5 @@ if not status_ok then
 	return
 end
 
-require("luasnip.loaders.from_vscode").lazy_load()
+local snippetDir = vim.fn.stdpath("config") .. "/snippets"
+require("luasnip.loaders.from_vscode").lazy_load( { paths = { snippetDir } })

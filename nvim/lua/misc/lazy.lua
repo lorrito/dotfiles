@@ -3,7 +3,7 @@ require("lazy").setup({
 	{ "nvim-lua/plenary.nvim" },
 
 	-- Colorscheme(s)
-	{ "chriskempson/base16-vim", lazy = false, priority = 1000 },
+	{ "rebelot/kanagawa.nvim", lazy = false, priority = 1000 },
 
 	-- Formatting code with C-f
 	{ "mhartington/formatter.nvim" },
@@ -81,6 +81,14 @@ require("lazy").setup({
 
 	-- Dim inactive windows
 	{ "levouh/tint.nvim" },
+
+	-- Snippet management
+	{
+		"chrisgrieser/nvim-scissors",
+		opts = {
+			snippetDir = vim.fn.stdpath("config") .. "/snippets",
+		},
+	},
 
 	-- Autopairs
 	{

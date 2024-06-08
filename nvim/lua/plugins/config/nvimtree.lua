@@ -24,11 +24,14 @@ plugin.setup({
 	git = {
 		enable = false,
 	},
+	view = {
+		signcolumn = "no",
+	},
 	renderer = {
-		indent_width = 1,
+		indent_width = 2,
 		indent_markers = {
 			enable = true,
-			inline_arrows = false,
+			inline_arrows = true,
 		},
 		icons = {
 			web_devicons = {
@@ -38,6 +41,9 @@ plugin.setup({
 				folder = {
 					color = false,
 				},
+			},
+			show = {
+				folder_arrow = true,
 			},
 		},
 	},

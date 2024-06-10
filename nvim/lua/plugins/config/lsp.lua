@@ -91,12 +91,26 @@ lspconfig.quick_lint_js.setup({
 	capabilities = capabilities,
 })
 
+lspconfig.jdtls.setup({
+	cmd = {
+		"jdtls",
+		"-configuration",
+		vim.fn.expand("$HOME/.cache/jdtls/config"),
+		"-data",
+		vim.fn.expand("$HOME/.cache/jdtls/workspace"),
+	},
+	filetypes = {
+		"java",
+	},
+	on_attach = on_attach,
+	capabilities = capabilities,
+})
+
 local servers = {
 	"clangd",
 	"html",
 	"rust_analyzer",
 	"tsserver",
-	"jdtls",
 }
 
 for _, lsp in ipairs(servers) do

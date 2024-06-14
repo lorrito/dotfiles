@@ -1,5 +1,6 @@
 ### basic setup
 > commands to run are prefixed with $
+> wsl should be installed via microsoft store
 
 1. $ sudo pacman -Syyuu (assuming keyring correct configuration)
 2. $ sudo pacman -S ripgrep fd base-devel docker docker-compose zsh git openssh glibc libffi libyaml openssl zlib fzf unzip tar zip python python-pipx postgresql sqlite cmake ninja rustup vim wget gzip tar curl man-db less tree man-pages
